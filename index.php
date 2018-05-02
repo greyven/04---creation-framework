@@ -30,7 +30,7 @@
 				}
 			?>
 		</div>
-		<footer>
+		<footer id="blogFooter">
 			Blog réalisé avec PHP, HTML5 et CSS.
 		</footer>
 	</div>
