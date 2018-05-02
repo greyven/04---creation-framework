@@ -1,5 +1,5 @@
 <?php
-	require('Controler.php');
+	require('Controler/Controler.php');
 
 	try
 	{
