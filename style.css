@@ -31,7 +31,7 @@ h1
 	width: 70%;
 	margin: auto; /* Permet de centrer la div */
 	text-align: justify;
-	padding: 5px, 20px;
+	padding: 5px 20px 5px 20px;
 }
 
 #content
@@ -39,3 +39,6 @@ h1
 
 #blogTitle, #blogFooter
 { text-align: center; }
+
+#responsesTitle
+{ font-size: 100%; }

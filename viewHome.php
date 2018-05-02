@@ -7,7 +7,9 @@
 			?>
 			<article>
 				<header>
-					<h1 class="postTitle"><?= $onePost['title'] ?></h1>
+					<a href="<?= "post.php?id=".$onePost['id'] ?>">
+						<h1 class="postTitle"><?= $onePost['title'] ?></h1>
+					</a>
 					<time><?= $onePost['date'] ?></time>
 				</header>
 				<p><?= $onePost['content'] ?></p>

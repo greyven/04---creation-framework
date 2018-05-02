@@ -11,6 +11,7 @@
 			<a href="index.php"><h1 id="blogTitle">Mon blog</h1></a>
 			<p>Je vous souhaite la bienvenue sur ce modeste blog.</p>
 		</header>
+		<hr/>
 		<div id="content">
 			<?= $content ?> <!-- contenu spécifique -->
 		</div>
