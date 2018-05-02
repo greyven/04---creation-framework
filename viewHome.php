@@ -7,7 +7,7 @@
 			?>
 			<article>
 				<header>
-					<a href="<?= "post.php?id=".$onePost['id'] ?>">
+					<a href="<?= "index.php?action=post&id=".$onePost['id'] ?>">
 						<h1 class="postTitle"><?= $onePost['title'] ?></h1>
 					</a>
 					<time><?= $onePost['date'] ?></time>
