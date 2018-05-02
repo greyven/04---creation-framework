@@ -3,4 +3,4 @@
 
 	$posts = getPosts();
 
-	require('viewAccueil.php');
+	require('viewHome.php');
