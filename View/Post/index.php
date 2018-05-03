@@ -1,23 +1,23 @@
-<?php $this->title = 'Mon blog - '.$post['title']; ?>
+<?php $this->title = 'Mon blog - '.$this->clean($post['title']); ?>
 
 <article>
 	<header>
-		<h1 class="postTitle"><?= $post['title']; ?></h1>
-		<time><?= $post['date']; ?></time>
+		<h1 class="postTitle"><?= $this->clean($post['title']); ?></h1>
+		<time><?= $this->clean($post['date']); ?></time>
 	</header>
-	<p><?= $post['content']; ?></p>
+	<p><?= $this->clean($post['content']); ?></p>
 </article>
 <hr/>
 <header>
-	<h1 id="responsesTitle">Réponses à <?= $post['title']; ?></h1>
+	<h1 id="responsesTitle">Réponses à <?= $this->clean($post['title']); ?></h1>
 </header>
 <?php
 	foreach ($comments as $oneComment)
 	{
 		?>
 		<p>
-			<?= $oneComment['author']; ?> dit: <br/>
-			<?= $oneComment['content']; ?>
+			<?= $this->clean($oneComment['author']); ?> dit: <br/>
+			<?= $this->clean($oneComment['content']); ?>
 		</p>
 		<?php
 	}
