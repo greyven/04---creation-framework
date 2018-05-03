@@ -1,19 +1,26 @@
 <?php
 
+require_once('Configuration.php')
+
 abstract class Model
 {
 	// Objet PDO d'accès à la BDD
-	private $db;
+	private static $db;
 
 
 	// Effectue la connexion à la BDD
 	// Instancie et renvoie l'objet PDO associé
-	private function getDb()
+	private static function getDb()
 	{
-		if($this->db == null)
+		if(self::$db == null)
 		{
-			$this->db = new PDO('mysql:host=localhost;dbname=_myblog;charset=utf8',
-				'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+			// recuperation des parametres de configuration bdd
+			$dsn = Configuration::get("dsn");
+			$login = Configuration::get("login");
+			$pwd = Configuration::get("pwd");
+			// Création de la connexion
+			self::$db = new PDO($dsn, $login, $pwd,
+				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		}
 		return $this->db;
 	}
@@ -22,10 +29,10 @@ abstract class Model
 	protected function executeRequest($sql, $params = null)
 	{
 		if($params == null)
-		{ $result = $this->getDb()->query($sql); } // exécution directe
+		{ $result = self::getDb()->query($sql); } // exécution directe
 		else
 		{
-			$result = $this->getDb()->prepare($sql); // requête préparée
+			$result = self::getDb()->prepare($sql); // requête préparée
 			$result->execute($params);
 		}
 		return $result;
