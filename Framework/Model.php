@@ -1,6 +1,6 @@
 <?php
 
-require_once('Framework/Configuration.php')
+require_once('Framework/Configuration.php');
 
 abstract class Model
 {
