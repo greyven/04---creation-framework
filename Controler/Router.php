@@ -1,61 +1,65 @@
 <?php
 
-require_once('Controler/ControlerHome.php');
-require_once('Controler/ControlerPost.php');
+require_once('Request.php');
 require_once('View/View.php');
 
 class Router
 {
-	private $ctrlHome;
-	private $ctrlPost;
 
-	public function __construct()
-	{
-		$this->ctrlHome = new ControlerHome();
-		$this->ctrlPost = new ControlerPost();
-	}
-
-	// Traite une action entrante
+	// Route une requete entrante: execute l'action associée
 	public function routeRequest()
 	{
 		try
 		{
-			if(isset($_GET['action']))
-			{
-				if($_GET['action'] == 'post')
-				{
-					$postId = intval($this->getParameter($_GET, 'id'));
-					if($postId != 0)
-					{ $this->ctrlPost->post($postId); }
-					else throw new Exception("Identifiant de post non valide.");
-				}
-				elseif($_GET['action'] == 'toComment')
-				{
-					$author = $this->getParameter($_POST, 'author');
-					$content = $this->getParameter($_POST, 'content');
-					$postId = $this->getParameter($_POST, 'id');
-					$this->ctrlPost->toComment($author, $content, $postId);
-				}
-				else throw new Exception("Action non valide");
-			}
-			else $this->ctrlHome->home();
+			// Fusion des parametres GET et POST de la requete
+			$request  = new Request(array_merge($_GET, $_POST));
+
+			$controler = $this->createControler($request);
+			$action = $this->createAction($request);
+
+			$controler->executeAction($action);
 		}
 		catch(Exception $e)
-		{
-			$this->error($e->getMessage());
-		}
+		{ $this->manageError($e); }
 	}
 
-	// Recherche un paramètre dans un tableau (provenant de $_GET ou $_POST)
-	private function getParameter($array, $key)
+	// Créer le controleur approprié en fonction de la requete reçue
+	private function createControler(Request $request)
 	{
-		if(isset($array[$key])) return $array[$key];
-		else throw new Exception("Parametre '$key' absent.");
+		$controler = "Home"; // Controler par defaut
+		if($request->existParameter('controler'))
+		{
+			$controler = $request->getParameter('controler');
+			// Premiere lettre en majuscule
+			$controler = ucfirst(strtolower($controler));
+		}
+
+		// Création du nom du fichier du controler
+		$controlerClass = "Controler".$controler;
+		$controlerFile = "Controler/".$controlerClass.".php";
+
+		if(file_exists($controlerFile))
+		{
+			require($controlerFile);
+			$controler = new $controlerClass();
+			$controler->setRequest($request);
+			return $controler;
+		}
+		else throw new Exception("Fichier '$controlerFile' introuvable.");
 	}
 
-	private function error($errorMsg)
+	// Détermine l'action à executer en fonction de la requete reçue
+	private function createAction(Request $request)
+	{
+		$action = "index"; // Action par defaut
+		if($request->existParameter('action')) $action = $request->getParameter('action');
+		return $action;
+	}
+
+	// Gérer erreur d'execution
+	private function manageError(Exception $exception)
 	{
 		$view = new View("Error");
-		$view->generate(array('errorMsg' => $errorMsg));
+		$view->generate(array('errorMsg' => $exception->getMessage()));
 	}
 }

@@ -7,10 +7,12 @@ class View
 	// Titre de la vue (défini dans le fichier de la vue)
 	private $title;
 
-	public function __construct($action)
+	public function __construct($action, $controler = "")
 	{
-		// Détermination du nom du fichier vue à partir de l'action
-		$this->file = "View/view".$action.".php";
+		// Détermination du nom du fichier vue à partir de l'action et du contructeur
+		$file = "View/";
+		if($controler != "") $file = $file.$controler."/";
+		$this->file = $file.$action.".php";
 	}
 
 	// Génère et affiche la vue
@@ -18,8 +20,14 @@ class View
 	{
 		// Génération de la partie spécifique de la vue
 		$content = $this->generateFile($this->file, $datas);
+
+		// On definit une variable locale accessible par la vue pour la racine web
+		// il s'agit du chemin vers le site sur le serveur web
+		// necessaire pour les URI de type controler/action/id
+		$webRoot = Configuration::get("webRoot", "/");
+
 		// Génération du template commun + partie spécifique
-		$view = $this->generateFile('View/template.php', array('title' => $this->title, 'content' => $content));
+		$view = $this->generateFile('View/template.php', array('title' => $this->title, 'content' => $content, 'webRoot' => $webRoot));
 		echo $view;
 	}
 
@@ -39,4 +47,8 @@ class View
 		}
 		else throw new Exception("Fichier '$file' introuvable.");
 	}
+
+	// Néttoie une valeur insérée dans une page HTML
+	private function clean($value)
+	{ return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false); }
 }
