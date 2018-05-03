@@ -15,7 +15,7 @@ abstract class Model
 			$this->db = new PDO('mysql:host=localhost;dbname=_myblog;charset=utf8',
 				'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		}
-		return $db;
+		return $this->db;
 	}
 
 	// Exécute une requête SQL éventuellement paramétrée

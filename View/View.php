@@ -18,6 +18,9 @@ class View
 	{
 		// Génération de la partie spécifique de la vue
 		$content = $this->generateFile($this->file, $datas);
+		// Génération du template commun + partie spécifique
+		$view = $this->generateFile('View/template.php', array('title' => $this->title, 'content' => $content));
+		echo $view;
 	}
 
 	// Génère un fichier vue et renvoie le résultat produit

@@ -22,5 +22,3 @@
 		<?php
 	}
 ?>
-
-<?php require('View/template.php'); ?>
