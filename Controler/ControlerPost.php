@@ -1,7 +1,8 @@
 <?php
+
+require_once('Framework/Controler.php');
 require_once('Model/Post.php');
 require_once('Model/Comment.php');
-require_once('Framework/Controler.php');
 
 class ControlerPost extends Controler
 {

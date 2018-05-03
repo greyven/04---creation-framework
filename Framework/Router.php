@@ -1,7 +1,7 @@
 <?php
 
-require_once('Request.php');
-require_once('View/View.php');
+require_once('Framework/Request.php');
+require_once('Framework/View.php');
 
 class Router
 {
