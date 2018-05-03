@@ -1,7 +1,5 @@
-<?php $titre = 'Mon blog'; ?>
+<?php $this->titre = 'Mon blog - Erreur'; ?>
 
-<?php ob_start() ?>
-	<p>Une erreur est survenue! <?= $errorMsg ?></p>
-<?php $content = ob_get_clean(); ?>
+<p>Une erreur est survenue! <?= $errorMsg ?></p>
 
 <?php require('View/template.php');

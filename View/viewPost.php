@@ -1,6 +1,5 @@
-<?php $title = 'Mon blog - '.$post['title']; ?>
+<?php $this->title = 'Mon blog - '.$post['title']; ?>
 
-<?php ob_start(); ?>
 <article>
 	<header>
 		<h1 class="postTitle"><?= $post['title']; ?></h1>
@@ -23,6 +22,5 @@
 		<?php
 	}
 ?>
-<?php $content = ob_get_clean(); ?>
 
 <?php require('View/template.php'); ?>
