@@ -8,23 +8,6 @@ abstract class Model
 	private static $db;
 
 
-	// Effectue la connexion à la BDD
-	// Instancie et renvoie l'objet PDO associé
-	private static function getDb()
-	{
-		if(self::$db == null)
-		{
-			// recuperation des parametres de configuration bdd
-			$dsn = Configuration::get("dsn");
-			$login = Configuration::get("login");
-			$pwd = Configuration::get("pwd");
-			// Création de la connexion
-			self::$db = new PDO($dsn, $login, $pwd,
-				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-		}
-		return $this->db;
-	}
-
 	// Exécute une requête SQL éventuellement paramétrée
 	protected function executeRequest($sql, $params = null)
 	{
@@ -36,5 +19,22 @@ abstract class Model
 			$result->execute($params);
 		}
 		return $result;
+	}
+	
+	// Effectue la connexion à la BDD
+	// Instancie et renvoie l'objet PDO associé
+	private static function getDb()
+	{
+		if(self::$db === null)
+		{
+			// recuperation des parametres de configuration bdd
+			$dsn = Configuration::get("dsn");
+			$login = Configuration::get("login");
+			$pwd = Configuration::get("pwd");
+			// Création de la connexion
+			self::$db = new PDO($dsn, $login, $pwd,
+				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+		}
+		return self::$db;
 	}
 }

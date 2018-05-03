@@ -1,5 +1,6 @@
 <?php
 
+require_once('Framework/Controler.php');
 require_once('Framework/Request.php');
 require_once('Framework/View.php');
 
@@ -59,7 +60,7 @@ class Router
 	// Gérer erreur d'execution
 	private function manageError(Exception $exception)
 	{
-		$view = new View("Error");
+		$view = new View("error");
 		$view->generate(array('errorMsg' => $exception->getMessage()));
 	}
 }

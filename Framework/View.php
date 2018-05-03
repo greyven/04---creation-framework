@@ -1,5 +1,7 @@
 <?php
 
+require_once('Framework/Configuration.php');
+
 class View
 {
 	// Nom du fichier associé à la vue

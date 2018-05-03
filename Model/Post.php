@@ -5,7 +5,7 @@ require_once('Framework/Model.php');
 class Post extends Model
 {
 	// Renvoie la liste de tous les posts triés par id decroissant
-	function getPosts()
+	public function getPosts()
 	{
 		$sql = 'SELECT post_id AS id, post_date AS date, post_title AS title, post_content AS content FROM posts ORDER BY post_id DESC';
 		$posts = $this->executeRequest($sql);
@@ -13,7 +13,7 @@ class Post extends Model
 	}
 
 	// Renvoie les infos d'un post
-	function getPost($postId)
+	public function getPost($postId)
 	{
 		$sql = 'SELECT post_id AS id, post_date AS date, post_title AS title, post_content AS content FROM posts WHERE post_id = ?';
 		$post = $this->executeRequest($sql, array($postId));

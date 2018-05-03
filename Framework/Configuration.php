@@ -17,8 +17,8 @@ class Configuration
 	{
 		if(self::$parameters == null)
 		{
-			$filePath = "Config/prod.ini";
-			if(!file_exists($filePath)) $filePath = "Config/dev.ini";
+			$filePath = "Config/dev.ini";
+			if(!file_exists($filePath)) $filePath = "Config/prod.ini";
 			if(!file_exists($filePath)) throw new Exception("Aucun fichier de configuration trouvé.");
 			else self::$parameters = parse_ini_file($filePath);
 		}
