@@ -22,3 +22,11 @@
 		<?php
 	}
 ?>
+<form method="post" action="index.php?action=toComment">
+	<input id="author" name="author" type="text" placeholder="Votre pseudo" required/>
+	<br/>
+	<textarea id="txtComment" name="content" rows="6" placeholder="Votre commentaire" required></textarea>
+	<br/>
+	<input type="hidden" name="id" value="<?= $post['id'] ?>"/>
+	<input type="submit" value="Valider"/>
+</form>

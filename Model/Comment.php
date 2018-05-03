@@ -11,4 +11,11 @@ class Comment extends Model
 		$comments = $this->executeRequest($sql, array($postId));
 		return $comments;
 	}
+
+	// Ajoute un commentaire dans la bdd
+	public function addComment($author, $content, $postId)
+	{
+		$sql = 'INSERT INTO comments(comm_date, comm_author, comm_content, post_id) VALUES(NOW(), ?, ?, ?)';
+		$this->executeRequest($sql, array($author, $content, $postId));
+	}
 }

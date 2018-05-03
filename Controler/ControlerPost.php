@@ -22,4 +22,13 @@ class ControlerPost
 		$view = new View('Post');
 		$view->generate(array('post' => $post, 'comments' => $comments));
 	}
+
+	// Ajout un commentaire à un post
+	public function toComment($author, $content, $postId)
+	{
+		// Sauvegarde du commentaire dans la bdd
+		$this->comment->addComment($author, $content, $postId);
+		// Actualisation de l'affichage du post
+		$this->post($postId);
+	}
 }

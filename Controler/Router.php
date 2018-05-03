@@ -24,14 +24,17 @@ class Router
 			{
 				if($_GET['action'] == 'post')
 				{
-					if(isset($_GET['id']))
-					{
-						$postId = intval($_GET['id']);
-						if($postId != 0)
-						{ $this->ctrlPost->post($postId); }
-						else throw new Exception("Identifiant de post non valide.");
-					}
-					else throw new Exception("Identifiant de post non défini.");
+					$postId = intval($this->getParameter($_GET, 'id'));
+					if($postId != 0)
+					{ $this->ctrlPost->post($postId); }
+					else throw new Exception("Identifiant de post non valide.");
+				}
+				elseif($_GET['action'] == 'toComment')
+				{
+					$author = $this->getParameter($_POST, 'author');
+					$content = $this->getParameter($_POST, 'content');
+					$postId = $this->getParameter($_POST, 'id');
+					$this->ctrlPost->toComment($author, $content, $postId);
 				}
 				else throw new Exception("Action non valide");
 			}
@@ -41,6 +44,13 @@ class Router
 		{
 			$this->error($e->getMessage());
 		}
+	}
+
+	// Recherche un paramètre dans un tableau (provenant de $_GET ou $_POST)
+	private function getParameter($array, $key)
+	{
+		if(isset($array[$key])) return $array[$key];
+		else throw new Exception("Parametre '$key' absent.");
 	}
 
 	private function error($errorMsg)
