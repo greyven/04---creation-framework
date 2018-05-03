@@ -1,9 +1,9 @@
 <?php
 
+require_once('Framework/Controler.php');
 require_once('Model/Post.php');
-require_once('View/View.php');
 
-class ControlerHome
+class ControlerHome extends Controler
 {
 	private $post;
 
@@ -11,10 +11,9 @@ class ControlerHome
 	{ $this->post = new Post(); }
 
 	// Affiche la liste de tous les posts du blog
-	public function home()
+	public function index()
 	{
 		$posts = $this->post->getPosts();
-		$view = new View("Home");
-		$view->generate(array('posts' => $posts));
+		$this->generateView(array('posts' => $posts));
 	}
 }

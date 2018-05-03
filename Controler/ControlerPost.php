@@ -1,9 +1,9 @@
 <?php
 require_once('Model/Post.php');
 require_once('Model/Comment.php');
-require_once('View/View.php');
+require_once('Framework/Controler.php');
 
-class ControlerPost
+class ControlerPost extends Controler
 {
 	private $post;
 	private $comment;
@@ -15,20 +15,27 @@ class ControlerPost
 	}
 
 	// Affiche les détails sur un post
-	public function post($postId)
+	public function index()
 	{
+		$postId = $this->request->getParameter("id");
+
 		$post = $this->post->getPost($postId);
 		$comments = $this->comment->getComments($postId);
-		$view = new View('Post');
-		$view->generate(array('post' => $post, 'comments' => $comments));
+		
+		$this->generateView(array('post' => $post, 'comments' => $comments));
 	}
 
 	// Ajout un commentaire à un post
-	public function toComment($author, $content, $postId)
+	public function toComment()
 	{
+		$postId = $this->request->getParameter("id");
+		$author = $this->request->getParameter("author");
+		$content = $this->request->getParameter("content");
+
 		// Sauvegarde du commentaire dans la bdd
 		$this->comment->addComment($author, $content, $postId);
-		// Actualisation de l'affichage du post
-		$this->post($postId);
+		
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->executeAction("index");
 	}
 }

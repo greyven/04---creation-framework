@@ -6,7 +6,7 @@ class Request
 	private $parameters;
 
 	public function __construct($parameters)
-	{ $this->parameters = $parameters }
+	{ $this->parameters = $parameters; }
 
 	// Renvoie vrai si le parametre existe dans la requete
 	public function existParameter($key)
