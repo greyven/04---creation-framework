@@ -1,12 +1,22 @@
 <?php
 
+require_once('Framework/Session.php');
+
 class Request
 {
 	// parametres de la requete
 	private $parameters;
+	private $session;
 
 	public function __construct($parameters)
-	{ $this->parameters = $parameters; }
+	{
+		$this->parameters = $parameters;
+		$this->session = new Session();
+	}
+
+	// Renvoie l'objet session associé à la requete
+	public function getSession()
+	{ return $this->session; }
 
 	// Renvoie vrai si le parametre existe dans la requete
 	public function existParameter($key)

@@ -20,4 +20,13 @@ class Post extends Model
 		if($post->rowCount() > 0) return $post->fetch();
 		else throw new Exception("Aucun post ne correspond à l'id");
 	}
+
+	// Renvoie le nb total de posts
+	public function countPosts()
+	{
+		$sql = 'SELECT COUNT(*) AS postsNb FROM posts';
+		$result = $this->executeRequest($sql);
+		$row = $result->fetch();
+		return $row['postsNb'];
+	}
 }

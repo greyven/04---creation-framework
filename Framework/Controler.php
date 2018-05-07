@@ -40,8 +40,22 @@ abstract class Controler
 		// Determiner le fichier vue à partir du nom du controler actuel
 		$controlerClass = get_class($this);
 		$controler = str_replace("Controler", "", $controlerClass);
+		
+		// AFFICHAGE DU CONTENU DES OBJETS POUR DEBUG
+		print_r($this);
+		echo '<br/>';
+		print_r($this->request);
+
 		// Instanciation et génération de la vue
 		$view = new View($this->action, $controler);
 		$view->generate($viewDatas);
+	}
+
+	// Effectue une redirection vers un controler et une action specifiques
+	protected function redirect($controler, $action = null)
+	{
+		$webRoot = Configuration::get("webRoot", "/");
+		// redirection vers l'url web_root/controler/action
+		header("Location:".$webRoot.$controler.'/'.$action);
 	}
 }

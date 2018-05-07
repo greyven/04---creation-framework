@@ -18,4 +18,13 @@ class Comment extends Model
 		$sql = 'INSERT INTO comments(comm_date, comm_author, comm_content, post_id) VALUES(NOW(), ?, ?, ?)';
 		$this->executeRequest($sql, array($author, $content, $postId));
 	}
+
+	// Renvoie le nb total de commentaires
+	public function countComments()
+	{
+		$sql = 'SELECT COUNT(*) AS commentsNb FROM comments';
+		$result = $this->executeRequest($sql);
+		$row = $result->fetch();
+		return $row['commentsNb'];
+	}
 }
