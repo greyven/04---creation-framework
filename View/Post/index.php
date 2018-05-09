@@ -1,11 +1,25 @@
 <?php $this->title = 'Mon blog - '.$this->clean($post['title']); ?>
 
+<?php $image = 'Content/Images/post/'.$post['image']; ?>
+
 <article class="post">
-	<header>
-		<h1 class="postTitle"><?= $this->clean($post['title']); ?></h1>
-		<time class="postDate"><?= $this->clean($post['date']); ?></time>
+	<style type="text/css">
+		.postTitle
+		{
+			<?php
+				if(file_exists($image)) echo 'background: url('.$image.') no-repeat fixed;';
+				else echo 'background-color: rgb(44,106,165);';
+			?>
+		}
+	</style>
+	<header class="postTitle">
+		<h1><?= $this->clean($post['title']); ?></h1>
 	</header>
 	<p class="postContent"><?= $this->clean($post['content']); ?></p>
+	<footer class="postDate">
+		Jean Forteroche, le
+		<time><?= $this->clean($post['date']); ?></time>
+	</footer>
 </article>
 <hr/>
 <header>

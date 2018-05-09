@@ -1,7 +1,7 @@
 <?php
 	$bg = array('bg1.jpg', 'bg2.jpg', 'bg3.jpg'); // array of filenames
   	$i = rand(0, count($bg)-1); // generate random number size of the array
-  	$selectedBg = 'Content/Images/'.$bg[$i]; // set variable equal to which random filename was chosen
+  	$selectedBg = 'Content/Images/bg/'.$bg[$i]; // set variable equal to which random filename was chosen
 ?>
 
 <!DOCTYPE html>
