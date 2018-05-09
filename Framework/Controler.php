@@ -35,19 +35,17 @@ abstract class Controler
 	public abstract function index();
 
 	// Génère la vue associée au controler courant
-	protected function generateView($viewDatas = array())
+	protected function generateView($viewDatas = array(), $view = null)
 	{
 		// Determiner le fichier vue à partir du nom du controler actuel
 		$controlerClass = get_class($this);
 		$controler = str_replace("Controler", "", $controlerClass);
 		
-		// AFFICHAGE DU CONTENU DES OBJETS POUR DEBUG
-		print_r($this);
-		echo '<br/>';
-		print_r($this->request);
+		
+		$action = (is_null($view)) ? $this->action : $view;
 
 		// Instanciation et génération de la vue
-		$view = new View($this->action, $controler);
+		$view = new View($action, $controler);
 		$view->generate($viewDatas);
 	}
 
