@@ -1,11 +1,11 @@
 <?php $this->title = 'Mon blog - '.$this->clean($post['title']); ?>
 
-<article>
+<article class="post">
 	<header>
 		<h1 class="postTitle"><?= $this->clean($post['title']); ?></h1>
-		<time><?= $this->clean($post['date']); ?></time>
+		<time class="postDate"><?= $this->clean($post['date']); ?></time>
 	</header>
-	<p><?= $this->clean($post['content']); ?></p>
+	<p class="postContent"><?= $this->clean($post['content']); ?></p>
 </article>
 <hr/>
 <header>

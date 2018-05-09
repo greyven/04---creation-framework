@@ -4,16 +4,16 @@
 	foreach ($posts as $onePost)
 	{
 		?>
-		<article>
+		<article class="post">
 			<header>
 				<a href="<?= "post/index/".$this->clean($onePost['id']) ?>">
 					<h1 class="postTitle"><?= $this->clean($onePost['title']) ?></h1>
 				</a>
-				<time><?= $this->clean($onePost['date']) ?></time>
+				<time class="postDate"><?= $this->clean($onePost['date']) ?></time>
 			</header>
-			<p><?= $this->clean($onePost['content']) ?></p>
+			<p class="postContent"><?= $this->clean($onePost['content']) ?></p>
 		</article>
-		<hr/>
+		<br/>
 		<?php
 	}
 ?>
