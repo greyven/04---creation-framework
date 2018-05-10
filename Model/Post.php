@@ -7,7 +7,7 @@ class Post extends Model
 	// Renvoie la liste de tous les posts triés par id decroissant
 	public function getPosts()
 	{
-		$sql = 'SELECT post_id AS id, post_date AS date, post_title AS title, post_content AS content FROM posts ORDER BY post_id DESC';
+		$sql = 'SELECT post_id AS id, post_date AS date, post_title AS title, post_content AS content, post_image AS image FROM posts ORDER BY post_id DESC';
 		$posts = $this->executeRequest($sql);
 		return $posts;
 	}

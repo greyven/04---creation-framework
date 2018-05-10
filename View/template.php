@@ -25,14 +25,23 @@
 		    </div>
 		</header>
 		<div id="content" class="container">
-			<div id="leftContent">
-				<?= $content ?> <!-- contenu spécifique -->
-			</div>
-			<div id="rightContent">
-				
+			<div class="row">
+				<section id="leftContent" class="col-lg-8">
+					<div class="col-lg-offset-1 col-lg-10">
+						<?= $content ?> <!-- contenu spécifique -->
+					</div>
+				</section>
+				<section id="rightContent" class="col-lg-4">
+					<div class="col-lg-10">
+						Jean Forteroche
+						acteur, ecrivain.
+						Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
+						Retrouvez ici ses prochaines publications journalieres.
+					</div>
+				</section>
 			</div>
 		</div>
-		<footer class="horizontalAlignCenter">
+		<footer class="permanent horizontalAlignCenter">
 			Blog réalisé avec PHP, HTML5 et CSS.
 		</footer>
 	</div>

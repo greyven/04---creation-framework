@@ -1,6 +1,6 @@
 <?php $this->title = 'Mon blog - '.$this->clean($post['title']); ?>
 
-<?php $image = 'Content/Images/post/'.$post['image']; ?>
+<?php $image = 'Content/Images/post/'.$this->clean($post['image']); ?>
 
 <article class="post">
 	<style type="text/css">

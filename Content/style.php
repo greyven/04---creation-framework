@@ -1,14 +1,5 @@
 <?php header("Content-type: text/css; charset: UTF-8"); ?>
 
-<?php
-	$bg = array('bg1.jpg', 'bg2.jpg', 'bg3.jpg'); // array of filenames
-  	$i = rand(0, count($bg)-1); // generate random number size of the array
-  	$selectedBg = 'Content/Images/bg/'.$bg[$i]; // set variable equal to which random filename was chosen
-
-  	if(file_exists($selectedBg)) $background = 'background: url('.$selectedBg.') no-repeat fixed';
-	else $background = 'black';
-?>
-
 /* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
    (min-height) sur un bloc, il faut que son parent direct ait lui-même une
    hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
@@ -20,30 +11,21 @@
    - le parent de body également en "height: 100%". */
 
 html, body
-{
-	height: 100%;
-	overflow: hidden;
-}
+{ height: 100%; }
 
 body
 {
 	padding: none;
 	color:#bfbfbf;
-	background: <?= $background ?>;
+	background: black;
 	font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
 }
 
 header
 { display: block; }
 
-footer.permanent
-{
-	color: black;
-	background-color: rgba(255,255,255,.85);
-	position: absolute;
-	width: 100%;
-	bottom: 0px;
-}
+footer
+{ background-color: rgba(255,255,255,.85); }
 
 h1
 { color: white; }
@@ -51,34 +33,6 @@ h1
 article.post
 {
 	background-color: rgba(255,255,255,.85);
-}
-
-.container
-{
-	height: 100%;
-	width: 100%;
-}
-
-#leftContent
-{
-	background-color: red;
-	position: absolute;
-  	top: 120px;
-  	bottom: 50px;
-  	left: 0;
-  	width: 66%;
-  	overflow-y: scroll;
-}
-
-
-#rightContent
-{
-	background-color: blue;
-	position: absolute;
-  	top: 120px;
-  	bottom: 50px;
-  	right: 0;
-  	width: 34%;
 }
 
 .jumbotron
@@ -98,18 +52,11 @@ article.post
 }
 
 .postTitle
-{
-	margin-bottom: 0px;
-}
+{ margin-bottom: 0px; }
 .postContent
-{
-	color: black;
-	background-color: rgba(0,50,200,.85);
-}
+{ background-color: rgba(0,50,200,.85); }
 .postDate
-{
-	background-color: rgba(0,0,200,.85);
-}
+{ background-color: rgba(0,0,200,.85); }
 
 .horizontalAlignCenter
 { text-align: center; }
