@@ -32,11 +32,23 @@
 					</div>
 				</section>
 				<section id="rightContent" class="col-lg-4">
-					<div class="col-lg-10">
-						Jean Forteroche
-						acteur, ecrivain.
-						Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
-						Retrouvez ici ses prochaines publications journalieres.
+					<div class="col-lg-10 biography">
+						<br/>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-6">
+								<img src="Content/Images/avatar/jean_forteroche.png"/>
+							</div>
+							<div class="col-lg-5 horizontalAlignCenter">
+								<br/>
+								<p>Jean Forteroche</p>
+								<p>Acteur, écrivain.</p>
+							</div>
+						</div>
+						<br/>
+						<p>
+							Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
+							Retrouvez ici ses prochaines publications journalieres.
+						</p>
 					</div>
 				</section>
 			</div>
