@@ -106,19 +106,19 @@ article.post
 	font-size: 40px;
 }
 
-.postTitle
+.pagination
 {
-	margin-bottom: 0px;
+	font-size: 25px;
 }
+.postTitle
+{ margin-bottom: 0px; }
 .postContent
 {
 	color: black;
 	background-color: rgba(0,50,200,.85);
 }
 .postDate
-{
-	background-color: rgba(0,0,200,.85);
-}
+{ background-color: rgba(0,0,200,.85); }
 
 .horizontalAlignCenter
 { text-align: center; }

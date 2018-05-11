@@ -1,6 +1,29 @@
 <?php $this->title = 'Mon blog'; ?>
 
+
+<fieldset>
+	<?php
+
+		// --------------- Étape 2 -----------------
+        // Créer les liens vers les pages
+        // -----------------------------------------
+
+        if($nbPages > 1)
+        {
+            for($numPage=1; $numPage<=$nbPages; $numPage++)
+            {
+                echo '<a class="pagination" href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
+            }
+        }
+    ?>
+</fieldset>
+
 <?php
+    // --------------- Étape 2 -----------------
+    // Afficher les messages
+    // -----------------------------------------
+
+
 	foreach ($posts as $onePost)
 	{
 		$image = 'Content/Images/post/'.$this->clean($onePost['image']);
@@ -29,4 +52,15 @@
 		<br/>
 		<?php
 	}
+
+	// --------------- Étape 2 -----------------
+    // Créer les liens vers les pages
+    // -----------------------------------------
+    if($nbPages > 1)
+    {
+        for($numPage=1; $numPage<=$nbPages; $numPage++)
+        {
+            echo '<a href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
+        }
+    }
 ?>
