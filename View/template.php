@@ -20,7 +20,7 @@
 <body>
 	<div id="global">
 		<header>
-		    <div class="jumbotron horizontalAlignCenter">
+		    <div class="jumbotron verticalAlignCenter horizontalAlignCenter">
 		    	<h2 class="blogTitle"><a href="index.php">Billet simple pour l'Alaska</a></h2>
 		    </div>
 		</header>
@@ -32,11 +32,11 @@
 					</div>
 				</section>
 				<section id="rightContent" class="col-lg-4">
-					<div class="col-lg-10 biography">
+					<div class="col-lg-10 biography shadow">
 						<br/>
 						<div class="row">
 							<div class="col-lg-offset-1 col-lg-6">
-								<img src="Content/Images/avatar/jean_forteroche.png"/>
+								<img class="photoJean shadow" src="Content/Images/avatar/jean_forteroche.png"/>
 							</div>
 							<div class="col-lg-5 horizontalAlignCenter">
 								<br/>
@@ -45,15 +45,24 @@
 							</div>
 						</div>
 						<br/>
-						<p>
-							Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
-							Retrouvez ici ses prochaines publications journalieres.
-						</p>
+						<br/>
+						<br/>
+						<div class="row livre">
+							<div class="col-lg-8">
+								<p>
+									Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
+									Retrouvez ici ses prochaines publications journalieres.
+								</p>
+							</div>
+							<div class="col-lg-4">
+								<img class="photoLivre" src="Content/Images/biography/livre.png"/>
+							</div>
+						</div>
 					</div>
 				</section>
 			</div>
 		</div>
-		<footer class="permanent horizontalAlignCenter">
+		<footer class="permanent verticalAlignCenter horizontalAlignCenter">
 			Blog réalisé avec PHP, HTML5 et CSS.
 		</footer>
 	</div>

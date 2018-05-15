@@ -26,7 +26,7 @@ abstract class Controler
 		else
 		{
 			$controlerClass = get_class($this);
-			throw new Exception("Action 'action' non défini dans la classe $controlerClass");
+			throw new Exception("Action ".$this->action." non défini dans la classe $controlerClass");
 		}
 	}
 

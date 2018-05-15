@@ -9,6 +9,13 @@
 	else $background = 'black';
 ?>
 
+:root
+{
+	--color1: rgba(255,250,245,.85); /* .jumbotron, .footerPermanent, .biography, article.post, .pagination */
+	--color2: rgba(215,189,218,.35); /* global */
+	--color3: rgba(144,111,169,1); /* .postFooter */
+}
+
 /* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
    (min-height) sur un bloc, il faut que son parent direct ait lui-même une
    hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
@@ -38,15 +45,13 @@ header
 
 footer.permanent
 {
-	display: flex; /* contexte sur le parent */
-  	flex-direction: column; /* direction d'affichage verticale */
-  	justify-content: center; /* alignement vertical */
 	color: black;
-	background-color: rgba(255,255,255,.85);
+	background-color: var(--color1);
 	position: absolute;
 	width: 100%;
 	height: 50px;
 	bottom: 0px;
+	box-shadow: 0px -3px 7px #454545;
 }
 
 h1
@@ -54,7 +59,7 @@ h1
 
 article.post
 {
-	background-color: rgba(255,255,255,.85);
+	background-color: var(--color1);
 }
 
 .container
@@ -65,7 +70,6 @@ article.post
 
 #leftContent
 {
-	
 	position: absolute;
   	top: 120px;
   	bottom: 75px;
@@ -87,16 +91,20 @@ article.post
 .biography
 {
 	color: black;
-	background-color: rgba(255,255,255,.85);
+	background-color: var(--color1);
 	height: 100%;
 }
+.livre
+{ margin-right: 10px; }
+.photoJean
+{ transform: rotate(3deg) scale(1) skew(1deg) translate(0px); }
+.photoLivre
+{ transform: rotate(-3deg) scale(1) skew(1deg) translate(0px); }
 .jumbotron
 {
 	height: 70px;
-	background-color: rgba(255,255,255,.85);
-	display: flex; /* contexte sur le parent */
-  	flex-direction: column; /* direction d'affichage verticale */
-  	justify-content: center; /* alignement vertical */
+	background-color: var(--color1);
+	box-shadow: 0px 3px 7px #454545;
 }
 
 .blogTitle
@@ -109,32 +117,103 @@ article.post
 .pagination
 {
 	font-size: 25px;
+	width: 36px;
+	background-color: var(--color1);
+	border-radius: 9px;
 }
+.pTop
+{ margin-bottom: -100px; }
+.pBottom
+{ margin-top: -100px; }
+.post
+{ margin: 45px 0 45px 0; }
 .postTitle
-{ margin-bottom: 0px; }
+{
+	margin-bottom: 0px;
+	height: 100px;
+}
+.postLink
+{
+	margin: 0 0 0 20px;
+	text-shadow:0 5px 7px #010101;
+}
+.homeContent
+{
+	min-height: 0px;
+	max-height: 150px;
+	overflow-y: hidden;
+}
 .postContent
 {
 	color: black;
-	background-color: rgba(0,50,200,.85);
+	margin: 10px;
 }
-.postDate
-{ background-color: rgba(0,0,200,.85); }
+.postFooter
+{
+	background-color: var(--color3);
+	height: 50px;
+}
+.postFooterText
+{
+	color: white;
+	margin-left: 10px;
+}
+
+.comments
+{
+	background-color: rgba(144,111,169,1);
+	margin: 45px 0 45px 0;
+}
+.commentsContent
+{ margin: 10px; }
+.commHeader
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.comment
+{
+	background-color: rgba(126,111,218,.5);
+	color: white;
+}
+.commFooter
+{
+	color: black;
+	margin-bottom: 10px;
+}
+
+
 
 .horizontalAlignCenter
 { text-align: center; }
+
+.verticalAlignCenter
+{
+	display: flex; /* contexte sur le parent */
+  	flex-direction: column; /* direction d'affichage verticale */
+  	justify-content: center; /* alignement vertical */
+}
+
+.shadow
+{ box-shadow: 0px 5px 7px #212121; }
 
 #global
 {
 	min-height: 100%; /* Voir commentaire sur html et body plus haut */
 	width: 100%;
 	text-align: justify;
+	background-color: var(--color2);
 }
 
 #content
 { margin-bottom: 30px; }
 
 #responsesTitle
-{ font-size: 100%; }
+{
+	font-size: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 
 #txtComment
 { width: 50%; }

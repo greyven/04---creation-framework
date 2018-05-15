@@ -1,24 +1,26 @@
 <?php $this->title = 'Mon blog'; ?>
 
+<div class="row horizontalAlignCenter">
+	<fieldset>
+		<?php
 
-<fieldset>
+			// --------------- Étape 1 -----------------
+	        // Créer les liens vers les pages
+	        // -----------------------------------------
+
+	        if($nbPages > 1)
+	        {
+	            for($numPage=1; $numPage<=$nbPages; $numPage++)
+	            {
+	                echo '<a class="pagination pTop shadow" href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
+	            }
+	        }
+	    ?>
+	</fieldset>
+</div>
+
+<div class="row">
 	<?php
-
-		// --------------- Étape 2 -----------------
-        // Créer les liens vers les pages
-        // -----------------------------------------
-
-        if($nbPages > 1)
-        {
-            for($numPage=1; $numPage<=$nbPages; $numPage++)
-            {
-                echo '<a class="pagination" href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
-            }
-        }
-    ?>
-</fieldset>
-
-<?php
     // --------------- Étape 2 -----------------
     // Afficher les messages
     // -----------------------------------------
@@ -28,7 +30,7 @@
 	{
 		$image = 'Content/Images/post/'.$this->clean($onePost['image']);
 		?>
-		<article class="post ">
+		<article class="post shadow">
 			<style type="text/css">
 				.postTitle
 				{
@@ -38,29 +40,38 @@
 					?>
 				}
 			</style>
-			<header class="postTitle">
+			<header class="postTitle verticalAlignCenter">
 				<a href="<?= "post/index/".$this->clean($onePost['id']) ?>">
-					<h1><?= $this->clean($onePost['title']) ?></h1>
+					<h1 class="postLink"><?= $this->clean($onePost['title']) ?></h1>
 				</a>
 			</header>
-			<p class="postContent"><?= $this->clean($onePost['content']) ?></p>
-			<footer class="postDate">
-				Jean Forteroche, le
-				<time><?= $this->clean($onePost['date']) ?></time>
+			<div class="homeContent">
+				<p class="postContent">
+					<?= $this->clean($onePost['content']) ?>
+				</p>
+			</div>
+			<footer class="postFooter verticalAlignCenter">
+				<div class="postFooterText">
+					Jean Forteroche, le
+					<time><?= $this->clean($onePost['date']) ?></time>
+				</div>
 			</footer>
 		</article>
-		<br/>
 		<?php
-	}
+	} ?>
+</div>
 
-	// --------------- Étape 2 -----------------
-    // Créer les liens vers les pages
-    // -----------------------------------------
-    if($nbPages > 1)
-    {
-        for($numPage=1; $numPage<=$nbPages; $numPage++)
-        {
-            echo '<a href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
-        }
-    }
-?>
+<div class="row horizontalAlignCenter">
+	<?php
+		// --------------- Étape 3 -----------------
+	    // Créer les liens vers les pages
+	    // -----------------------------------------
+	    if($nbPages > 1)
+	    {
+	        for($numPage=1; $numPage<=$nbPages; $numPage++)
+	        {
+	            echo '<a class="pagination pBottom shadow" href="index.php?page=' . $numPage . '">' . $numPage . '</a>' . ' ';
+	        }
+	    }
+	?>
+</div>
