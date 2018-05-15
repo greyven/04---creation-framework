@@ -50,10 +50,14 @@ abstract class Controler
 	}
 
 	// Effectue une redirection vers un controler et une action specifiques
-	protected function redirect($controler, $action = null)
+	protected function redirect($controler, $action = null, $id = null)
 	{
 		$webRoot = Configuration::get("webRoot", "/");
 		// redirection vers l'url web_root/controler/action
-		header("Location:".$webRoot.$controler.'/'.$action);
+		$url = $webRoot.$controler.'/'.$action;
+		if(isset($id)){
+			$url .= '/'.$id;
+		}
+		header("Location:".$url);
 	}
 }

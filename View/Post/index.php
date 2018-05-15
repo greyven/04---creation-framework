@@ -1,18 +1,8 @@
 <?php $this->title = 'Mon blog - '.$this->clean($post['title']); ?>
 
-<?php $image = 'Content/Images/post/'.$this->clean($post['image']); ?>
-
 <article class="post shadow">
-	<style type="text/css">
-		.postTitle
-		{
-			<?php
-				if(file_exists($image)) echo 'background: url('.$image.') no-repeat;';
-				else echo 'background-color: rgb(44,106,165);';
-			?>
-		}
-	</style>
-	<header class="postTitle verticalAlignCenter">
+
+	<header class="postTitle toto verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($post['image']); ?>')" >
 		<h1 class="postLink"><?= $this->clean($post['title']); ?></h1>
 	</header>
 	<p class="postContent"><?= $this->clean($post['content']); ?></p>
@@ -43,7 +33,7 @@
 			?>
 		</div>
 		<div class="commFooter">
-			<form method="post" action="index.php?controler=post&action=toComment">
+			<form method="post" action="post/toComment/">
 				<input id="author" name="author" type="text" placeholder="Votre pseudo" required/>
 				<br/>
 				<textarea id="txtComment" name="content" rows="6" placeholder="Votre commentaire" required></textarea>

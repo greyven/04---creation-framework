@@ -29,7 +29,13 @@ class ControlerPost extends Controler
 	// Ajout un commentaire à un post
 	public function toComment()
 	{
+
+
+
 		$postId = $this->request->getParameter("id");
+
+
+
 		$author = $this->request->getParameter("author");
 		$content = $this->request->getParameter("content");
 
@@ -37,6 +43,6 @@ class ControlerPost extends Controler
 		$this->comment->addComment($author, $content, $postId);
 		
 		// Execution de l'action par defaut pour actualiser l'affichage du post
-		$this->executeAction("index");
+		$this->redirect("post","index",$postId);
 	}
 }

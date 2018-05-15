@@ -1,14 +1,3 @@
-<?php header("Content-type: text/css; charset: UTF-8"); ?>
-
-<?php
-	$bg = array('bg1.jpg', 'bg2.jpg', 'bg3.jpg'); // array of filenames
-  	$i = rand(0, count($bg)-1); // generate random number size of the array
-  	$selectedBg = 'Content/Images/bg/'.$bg[$i]; // set variable equal to which random filename was chosen
-
-  	if(file_exists($selectedBg)) $background = 'background: url('.$selectedBg.') no-repeat fixed';
-	else $background = 'black';
-?>
-
 :root
 {
 	--color1: rgba(255,250,245,.85); /* .jumbotron, .footerPermanent, .biography, article.post, .pagination */
@@ -26,29 +15,50 @@
    - un parent (body) en "height: 100%";
    - le parent de body également en "height: 100%". */
 
-html, body
-{
-	height: 100%;
-	overflow: hidden;
-}
-
 body
 {
 	padding: none;
-	color:#bfbfbf;
-	background: <?= $background ?>;
+	color:#bfbfbf;	
 	font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+	background-color: black;
+	background-attachment: fixed;
+	overflow-x: hidden;
 }
 
-header
-{ display: block; }
+.container
+{
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
 
+body.bg1
+{ background-image: url('Images/bg/bg2.jpg'); }
+
+body.bg2
+{ background-image: url('Images/bg/bg2.jpg'); }
+
+body.bg3
+{ background-image: url('Images/bg/bg3.jpg'); }
+
+.permanent
+{
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+}
+header.permanent
+{
+	color: black;
+	background-color: var(--color1);
+	height: 90px;
+	top: 0px;
+	box-shadow: 0px 3px 7px #454545;
+}
 footer.permanent
 {
 	color: black;
 	background-color: var(--color1);
-	position: absolute;
-	width: 100%;
 	height: 50px;
 	bottom: 0px;
 	box-shadow: 0px -3px 7px #454545;
@@ -58,41 +68,25 @@ h1
 { color: white; }
 
 article.post
-{
-	background-color: var(--color1);
-}
-
-.container
-{
-	height: 100%;
-	width: 100%;
-}
+{ background-color: var(--color1); }
 
 #leftContent
-{
-	position: absolute;
-  	top: 120px;
-  	bottom: 75px;
-  	left: 0;
-  	width: 66%;
-  	overflow-y: scroll;
-}
+{}
 
 
 #rightContent
+{ height: 100%; }
+.biography.affix
 {
-	
-	position: absolute;
-  	top: 120px;
-  	bottom: 75px;
-  	right: 0;
-  	width: 34%;
+	top: 110px;
+	bottom: 200px;
 }
 .biography
 {
 	color: black;
 	background-color: var(--color1);
-	height: 100%;
+	height: 730px;
+	width: 460px;
 }
 .livre
 { margin-right: 10px; }
@@ -100,12 +94,6 @@ article.post
 { transform: rotate(3deg) scale(1) skew(1deg) translate(0px); }
 .photoLivre
 { transform: rotate(-3deg) scale(1) skew(1deg) translate(0px); }
-.jumbotron
-{
-	height: 70px;
-	background-color: var(--color1);
-	box-shadow: 0px 3px 7px #454545;
-}
 
 .blogTitle
 {
@@ -131,6 +119,7 @@ article.post
 {
 	margin-bottom: 0px;
 	height: 100px;
+	background-color: rgb(44,106,165);
 }
 .postLink
 {
@@ -182,8 +171,6 @@ article.post
 	margin-bottom: 10px;
 }
 
-
-
 .horizontalAlignCenter
 { text-align: center; }
 
@@ -206,7 +193,10 @@ article.post
 }
 
 #content
-{ margin-bottom: 30px; }
+{
+	margin-top: 110px;
+	margin-bottom: 70px;
+}
 
 #responsesTitle
 {

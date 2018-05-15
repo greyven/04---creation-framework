@@ -28,19 +28,9 @@
 
 	foreach ($posts as $onePost)
 	{
-		$image = 'Content/Images/post/'.$this->clean($onePost['image']);
 		?>
 		<article class="post shadow">
-			<style type="text/css">
-				.postTitle
-				{
-					<?php
-						if(file_exists($image)) echo 'background: url('.$image.') no-repeat;';
-						else echo 'background-color: rgb(44,106,165);';
-					?>
-				}
-			</style>
-			<header class="postTitle verticalAlignCenter">
+			<header class="postTitle verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($onePost['image']); ?>')">
 				<a href="<?= "post/index/".$this->clean($onePost['id']) ?>">
 					<h1 class="postLink"><?= $this->clean($onePost['title']) ?></h1>
 				</a>
