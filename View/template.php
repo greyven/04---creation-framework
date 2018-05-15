@@ -45,7 +45,7 @@
 								<br/>
 								<br/>
 								<br/>
-								<div class="row livre">
+								<div class="row book">
 									<div class="col-lg-8">
 										<p>
 											Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
