@@ -28,4 +28,7 @@ class Request
 		if($this->existParameter($key)) return $this->parameters[$key];
 		else throw new Exception("Parametre '$key' absent de la requete.");
 	}
+
+	/* public function addParameter($param)
+	{ $this->parameters = array_merge($this->parameters, $param); } */
 }

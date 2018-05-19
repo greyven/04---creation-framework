@@ -55,9 +55,7 @@ abstract class Controler
 		$webRoot = Configuration::get("webRoot", "/");
 		// redirection vers l'url web_root/controler/action
 		$url = $webRoot.$controler.'/'.$action;
-		if(isset($id)){
-			$url .= '/'.$id;
-		}
+		if(isset($id)) $url .= '/'.$id;
 		header("Location:".$url);
 	}
 }

@@ -12,60 +12,104 @@
 <body class="bg<?= mt_rand(1,3) ?>">
 	<div id="global" class="container">
 		
+		<!-- FILTRE COLORÉ -->
+		<div class="filter"></div>
+
 		<!-- HEADER -->
 		<header class="permanent verticalAlignCenter horizontalAlignCenter">
-		    <h2 class="blogTitle"><a href="index.php">Billet simple pour l'Alaska</a></h2>
+		    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
 		</header>
 
 		<!-- CONTENT -->
 		<div id="content">
 			<div class="container">
 				<div class="row">
-					<section id="leftContent" class="col-lg-8">
+
+					<?php
+						if(isset($_GET['controler']) && $_GET['controler'] == "admin")
+						{ $class = "col-lg-12"; }
+						else
+						{ $class = "col-lg-8"; }
+					?>
+					<section id="leftContent" class="<?= $class ?>">
 						<div class="row">
 							<div class="col-lg-offset-1 col-lg-10">
-								<?= $content ?> <!-- contenu spécifique -->
+								<?= $content ?> <!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS -->
 							</div>
 						</div>
 					</section>
-					<section id="rightContent" class="col-lg-4">
-						<div class="row">
-							<div class="col-lg-10 biography shadow" data-spy="affix" data-offset-top="0">
-								<br/>
-								<div class="row">
-									<div class="col-lg-offset-1 col-lg-6">
-										<img class="photoJean shadow" src="Content/Images/avatar/jean_forteroche.png"/>
-									</div>
-									<div class="col-lg-5 horizontalAlignCenter">
-										<br/>
-										<p>Jean Forteroche</p>
-										<p>Acteur, écrivain.</p>
-									</div>
-								</div>
-								<br/>
-								<br/>
-								<br/>
-								<div class="row book">
-									<div class="col-lg-8">
-										<p>
-											Son nouveau roman en cours d'écriture, Billet simple pour l'alaska.
-											Retrouvez ici ses prochaines publications journalieres.
-										</p>
-									</div>
-									<div class="col-lg-4">
-										<img class="photoLivre" src="Content/Images/biography/livre.png"/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
+
+					<?php
+						if(isset($_GET['controler']) && $_GET['controler'] == "admin")
+						{ }
+						else
+						{
+							?>
+							<section id="rightContent" class="col-lg-4">
+								<?php require_once('View/biography.php'); ?> <!-- AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
+							</section>
+							<?php
+						}
+					?>
 				</div>
 			</div>
 		</div>
 
 		<!-- FOOTER -->
-		<footer class="permanent verticalAlignCenter horizontalAlignCenter">
-			Blog réalisé avec PHP, HTML5 et CSS.
+		<footer class="permanent verticalAlignCenter">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="row">
+						<?php
+							if(isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0)
+							{
+								?>
+								<div class="col-lg-6">
+									<div class="marginLeft10 session">
+										<a href="connexion/deconnect">Déconnexion</a>
+									</div>
+								</div>
+								<div class="col-lg-6"></div>
+								<?php
+							}
+							else
+							{
+								?>
+								<div class="col-lg-3">
+									<div class="marginLeft10 session">
+										<a href="connexion">Connexion</a>
+									</div>
+								</div>
+								<div class="col-lg-1">/</div>
+								<div class="col-lg-6">
+									<div class="marginLeft10 session">
+										<a href="register">Inscription</a>
+									</div>
+								</div>
+								<?php
+							}
+						?>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="horizontalAlignCenter">
+						Blog réalisé avec PHP, HTML5 et CSS.
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<?php
+						if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1)
+						{
+							?>
+							<div class="col-lg-6"></div>
+							<div class="col-lg-6">
+								<a href="admin">Administration</a>
+							</div>
+							<?php
+						}
+					?>
+				</div>
+			</div>
 		</footer>
 	</div>
 </body>

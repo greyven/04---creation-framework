@@ -1,10 +1,3 @@
-:root
-{
-	--color1: rgba(255,250,245,.85); /* .jumbotron, .footerPermanent, .biography, article.post, .pagination */
-	--color2: rgba(215,189,218,.35); /* global */
-	--color3: rgba(144,111,169,1); /* .postFooter */
-}
-
 /* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
    (min-height) sur un bloc, il faut que son parent direct ait lui-même une
    hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
@@ -15,25 +8,19 @@
    - un parent (body) en "height: 100%";
    - le parent de body également en "height: 100%". */
 
-body
-{
-	padding: none;
-	color:#bfbfbf;	
-	font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
-	background-color: black;
-	background-attachment: fixed;
-	overflow-x: hidden;
-}
 
-.container
+/***************/
+/* BACKGROUNDS */
+/***************/
+:root
 {
-	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
+	--color1: rgba(255,250,245,.85); /* .jumbotron, .footerPermanent, .biography, article.post, .pagination */
+	--color2: rgba(215,189,218,.35); /* global */
+	--color3: rgba(144,111,169,1); /* .postFooter */
+	--color4: rgba(255,255,255,.1); /* .comment */
 }
-
 body.bg1
-{ background-image: url('Images/bg/bg2.jpg'); }
+{ background-image: url('Images/bg/bg1.jpg'); }
 
 body.bg2
 { background-image: url('Images/bg/bg2.jpg'); }
@@ -41,6 +28,77 @@ body.bg2
 body.bg3
 { background-image: url('Images/bg/bg3.jpg'); }
 
+
+
+
+/***********/
+/* GÉNÉRAL */
+/***********/
+body
+{
+	padding: none;
+	color:#000000;	
+	font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+	background-color: black;
+	background-attachment: fixed;
+	overflow-x: hidden;
+}
+.horizontalAlignCenter
+{ text-align: center; }
+.verticalAlignCenter
+{
+	display: flex; /* contexte sur le parent */
+  	flex-direction: column; /* direction d'affichage verticale */
+  	justify-content: center; /* alignement vertical */
+}
+.marginRight10
+{ margin-right: 10px; }
+.marginLeft10
+{ margin-left: 10px; }
+.padding10
+{ padding: 10px; }
+.shadow
+{ box-shadow: 0px 5px 7px #212121; }
+h1
+{ color: white; }
+hr
+{
+  	border: 2px solid var(--color3);
+  	border-radius: 2px;
+}
+
+
+
+
+/**************************/
+/* CONTENU GLOBAL DU BLOG */
+/**************************/
+#global
+{
+	min-height: 100%; /* Voir commentaire sur html et body plus haut */
+	width: 100%;
+	text-align: justify;
+}
+.container
+{
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+.filter
+{
+	background-color: var(--color2);
+	width: 100%;
+	min-height: 100%;
+	position: fixed;
+}
+
+
+
+
+/****************************************/
+/* BANDEAUX PERMANENTS HEADER ET FOOTER */
+/****************************************/
 .permanent
 {
 	width: 100%;
@@ -55,6 +113,12 @@ header.permanent
 	top: 0px;
 	box-shadow: 0px 3px 7px #454545;
 }
+.blogTitle
+{
+	margin-top:  0px;
+	margin-bottom: 0px;
+	font-size: 40px;
+}
 footer.permanent
 {
 	color: black;
@@ -64,18 +128,12 @@ footer.permanent
 	box-shadow: 0px -3px 7px #454545;
 }
 
-h1
-{ color: white; }
-
-article.post
-{ background-color: var(--color1); }
-
-#leftContent
-{}
 
 
-#rightContent
-{ height: 100%; }
+
+/****************************/
+/* BIOGRAPHIE PARTIE DROITE */
+/****************************/
 .biography.affix
 {
 	top: 110px;
@@ -88,20 +146,31 @@ article.post
 	height: 730px;
 	width: 460px;
 }
-.book
-{ margin-right: 10px; }
+.bioTitle
+{ font-size: 2.3em; }
 .photoJean
 { transform: rotate(3deg) scale(1) skew(1deg) translate(0px); }
-.photoLivre
-{ transform: rotate(-3deg) scale(1) skew(1deg) translate(0px); }
-
-.blogTitle
+.photoBook
 {
-	margin-top:  0px;
-	margin-bottom: 0px;
-	font-size: 40px;
+	transform: rotate(-3deg) scale(1) skew(1deg) translate(0px);
+	margin-left: 10px;
 }
 
+
+
+
+/*********************************************/
+/* CONTENU PARTIE GAUCHE (POSTS ET COMMENTS) */
+/*********************************************/
+#content
+{
+	margin-top: 110px;
+	margin-bottom: 70px;
+}
+
+/*********/
+/* POSTS */
+/*********/
 .pagination
 {
 	font-size: 25px;
@@ -114,7 +183,10 @@ article.post
 .pBottom
 { margin-top: -100px; }
 .post
-{ margin: 45px 0 45px 0; }
+{
+	margin: 45px 0 45px 0;
+	background-color: var(--color1);
+}
 .postTitle
 {
 	margin-bottom: 0px;
@@ -148,9 +220,13 @@ article.post
 	margin-left: 10px;
 }
 
+
+/****************/
+/* COMMENTAIRES */
+/****************/
 .comments
 {
-	background-color: rgba(144,111,169,1);
+	background-color: var(--color3);
 	margin: 45px 0 45px 0;
 }
 .commentsContent
@@ -162,48 +238,38 @@ article.post
 }
 .comment
 {
-	background-color: rgba(126,111,218,.5);
+	background-color: var(--color4);
 	color: white;
+	margin-bottom: 7px;
 }
+.comment .container .row
+{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.commAuthor
+{ font-size: 1.1em; }
+.reported
+{ color: #BBBBBB; }
+.notReported
+{ color: #FFFFFF }
 .commFooter
 {
 	color: black;
 	margin-bottom: 10px;
 }
-
-.horizontalAlignCenter
-{ text-align: center; }
-
-.verticalAlignCenter
-{
-	display: flex; /* contexte sur le parent */
-  	flex-direction: column; /* direction d'affichage verticale */
-  	justify-content: center; /* alignement vertical */
-}
-
-.shadow
-{ box-shadow: 0px 5px 7px #212121; }
-
-#global
-{
-	min-height: 100%; /* Voir commentaire sur html et body plus haut */
-	width: 100%;
-	text-align: justify;
-	background-color: var(--color2);
-}
-
-#content
-{
-	margin-top: 110px;
-	margin-bottom: 70px;
-}
-
 #responsesTitle
 {
 	font-size: 20px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-
-#txtComment
+#txtComment /* textarea comments */
 { width: 50%; }
+
+
+/*************/
+/* CONNEXION */
+/*************/
+.connexion
+{ background-color: var(--color3); }

@@ -30,20 +30,20 @@
 	{
 		?>
 		<article class="post shadow">
-			<header class="postTitle verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($onePost['image']); ?>')">
-				<a href="<?= "post/index/".$this->clean($onePost['id']) ?>">
-					<h1 class="postLink"><?= $this->clean($onePost['title']) ?></h1>
+			<header class="postTitle verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($onePost['post_image']); ?>')">
+				<a href="<?= "post/index/".$this->clean($onePost['post_id']) ?>">
+					<h1 class="postLink"><?= $this->clean($onePost['post_title']) ?></h1>
 				</a>
 			</header>
 			<div class="homeContent">
 				<p class="postContent">
-					<?= $this->clean($onePost['content']) ?>
+					<?= $this->clean($onePost['post_content']) ?>
 				</p>
 			</div>
 			<footer class="postFooter verticalAlignCenter">
 				<div class="postFooterText">
 					Jean Forteroche, le
-					<time><?= $this->clean($onePost['date']) ?></time>
+					<time><?= $this->clean($onePost['post_date']) ?></time>
 				</div>
 			</footer>
 		</article>

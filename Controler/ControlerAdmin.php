@@ -21,7 +21,7 @@ class ControlerAdmin extends ControlerSecured
 	{
 		$postsNb = $this->post->countPosts();
 		$commentsNb = $this->comment->countComments();
-		$login = $this->request->getSession()->getAttribute("login");
-		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'login' => $login));
+		$login = $this->request->getSession()->getAttribute("user_login");
+		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'user_login' => $login));
 	}
 }

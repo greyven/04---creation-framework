@@ -11,7 +11,7 @@ abstract class ControlerSecured extends Controler
  		// Si oui, l'utilisateur s'est déjà authentifié : l'exécution de l'action
  		// continue normalement
  		// Si non, l'utilisateur est renvoyé vers le contrôleur de connexion
- 		if($this->request->getSession()->existAttribute('userId'))
+ 		if($this->request->getSession()->existAttribute('user_id'))
  			parent::executeAction($action);
  		else $this->redirect("connexion");
 	}
