@@ -64,25 +64,28 @@
 							if(isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0)
 							{
 								?>
-								<div class="col-lg-6">
-									<div class="marginLeft10 session">
-										<a href="connexion/deconnect">Déconnexion</a>
+								<div class="col-lg-3">
+									<div class="floatRight">
+										<?= $_SESSION['user_login']; ?>
 									</div>
 								</div>
-								<div class="col-lg-6"></div>
+								<div class="col-lg-1">-</div>
+								<div class="col-lg-6">
+									<a href="connexion/deconnect">Déconnexion</a>
+								</div>
 								<?php
 							}
 							else
 							{
 								?>
 								<div class="col-lg-3">
-									<div class="marginLeft10 session">
+									<div class="floatRight">
 										<a href="connexion">Connexion</a>
 									</div>
 								</div>
 								<div class="col-lg-1">/</div>
 								<div class="col-lg-6">
-									<div class="marginLeft10 session">
+									<div class="floatLeft">
 										<a href="register">Inscription</a>
 									</div>
 								</div>
