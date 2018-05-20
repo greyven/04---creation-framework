@@ -16,8 +16,9 @@
 {
 	--color1: rgba(255,250,245,.85); /* .jumbotron, .footerPermanent, .biography, article.post, .pagination */
 	--color2: rgba(215,189,218,.35); /* global */
-	--color3: rgba(144,111,169,1); /* .postFooter */
+	--color3: rgba(144,111,169,1); /* .postFooter, bg connexion et inscription, bouton accueil (admin) */
 	--color4: rgba(255,255,255,.1); /* .comment */
+	--color5: rgba(80,40,115,1); /* menu admin :hover; */
 }
 body.bg1
 { background-image: url('Images/bg/bg1.jpg'); }
@@ -57,6 +58,10 @@ body
 { margin-left: 10px; }
 .padding10
 { padding: 10px; }
+.floatRight
+{ float: right; }
+.floatLeft
+{ float: left; }
 .shadow
 { box-shadow: 0px 5px 7px #212121; }
 h1
@@ -268,8 +273,44 @@ footer.permanent
 { width: 50%; }
 
 
-/*************/
-/* CONNEXION */
-/*************/
+/***************************/
+/* CONNEXION / INSCRIPTION */
+/***************************/
 .connexion
 { background-color: var(--color3); }
+
+
+
+
+/******************/
+/* ADMINISTRATION */
+/******************/
+
+
+/********/
+/* MENU */
+/********/
+
+
+ul.horizontal
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+ul.horizontal li
+{ float: left; }
+ul.horizontal li a.active
+{ background-color: var(--color3); }
+ul.horizontal li a
+{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ul.horizontal li:hover
+{ background-color: var(--color5); }
