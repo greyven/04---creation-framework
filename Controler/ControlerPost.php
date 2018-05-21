@@ -3,16 +3,19 @@
 require_once('Framework/Controler.php');
 require_once('Model/Post.php');
 require_once('Model/Comment.php');
+require_once('Model/User.php');
 
 class ControlerPost extends Controler
 {
 	private $post;
 	private $comment;
+	private $user;
 
 	public function __construct()
 	{
 		$this->post = new Post();
 		$this->comment = new Comment();
+		$this->user = new User();
 	}
 
 	// Affiche les détails sur un post
@@ -30,14 +33,30 @@ class ControlerPost extends Controler
 	public function toComment()
 	{
 		$postId = $this->request->getParameter("post_id");
-		$author = $this->request->getParameter("comm_author");
 		$content = $this->request->getParameter("comm_content");
 
-		// Sauvegarde du commentaire dans la bdd
-		$this->comment->addComment($author, $content, $postId);
-		
-		// Execution de l'action par defaut pour actualiser l'affichage du post
-		$this->redirect("post","index",$postId);
+		if(!$this->request->getSession()->existAttribute('user_login')) // Si c'est un visiteur,
+		{
+			$author = $this->request->getParameter("comm_author")." [visiteur]";
+
+			// Sauvegarde du commentaire dans la bdd
+			$this->comment->addComment($author, $content, $postId);
+			
+			// Execution de l'action par defaut pour actualiser l'affichage du post
+			$this->redirect("post","index",$postId);
+		}
+		else // sinon c'est un utilisateur authentifié
+		{
+			$author = $this->request->getParameter("comm_author");
+
+			// Sauvegarde du commentaire dans la bdd
+			$this->comment->addComment($author, $content, $postId);
+			
+			// Execution de l'action par defaut pour actualiser l'affichage du post
+			$this->redirect("post","index",$postId);
+			unset($_SESSION['errorContent']);
+			unset($_SESSION['errorMsg']);
+		}
 	}
 
 	// Signaler un commentaire déplacé
@@ -51,5 +70,11 @@ class ControlerPost extends Controler
 
 		// Execution de l'action par defaut pour actualiser l'affichage du post
 		$this->redirect("post","index",$postId);
+	}
+
+	// Supprimer un commentaire
+	public function deleteComment()
+	{
+
 	}
 }

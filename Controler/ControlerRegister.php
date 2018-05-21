@@ -22,17 +22,21 @@ class ControlerRegister extends Controler
 
 			if($login != "" && $pwd != "")
 			{
-				$added = $this->user->addUser($login, $pwd);
-				if($added)
+				if(!$this->user->existLogin($login))
 				{
-					/* $this->request->getSession()->setAttribute('login', $login);
-					$this->request->getSession()->setAttribute('pwd', $pwd);
-					$this->request->getSession()->setAttribute('justRegistered', true);
-					$this->request->addParameter($this->request->getSession()->getAttribute('justRegistered'));
-					$this->redirect("connexion/connect"); */
-					$this->redirect("home");
+					$added = $this->user->addUser($login, $pwd);
+					if($added)
+					{
+						/* $this->request->getSession()->setAttribute('login', $login);
+						$this->request->getSession()->setAttribute('pwd', $pwd);
+						$this->request->getSession()->setAttribute('justRegistered', true);
+						$this->request->addParameter($this->request->getSession()->getAttribute('justRegistered'));
+						$this->redirect("connexion/connect"); */
+						$this->redirect("home");
+					}
+					else throw new Exception("Erreur, impossible d'ajouter l'utilisateur à la base de données.");
 				}
-				else throw new Exception("Erreur, impossible d'ajouter l'utilisateur à la base de données.");
+				else $this->generateView(array('errorMsg' => 'Pseudo déjà existant.'), "index");
 			}
 			else $this->generateView(array('errorMsg' => 'Vous devez remplir les champs.'), "index");
 		}
