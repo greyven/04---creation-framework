@@ -5,7 +5,7 @@ require_once('Model/Post.php');
 require_once('Model/Comment.php');
 
 // Controleur des actions d'administration
-class ControlerAdmin extends ControlerSecured
+class ControlerManagecomments extends ControlerSecured
 {
 	private $post;
 	private $comment;
@@ -21,6 +21,9 @@ class ControlerAdmin extends ControlerSecured
 	{
 		$postsNb = $this->post->countPosts();
 		$commentsNb = $this->comment->countComments();
-		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb));
+		$allPosts = $this->post->getAllPosts();
+		$reportedComments = $this->comment->getReportedComments();
+		$allComments = $this->comment->getAllComments();
+		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'allPosts' => $allPosts, 'reportedComments' => $reportedComments, 'allComments' => $allComments));
 	}
 }

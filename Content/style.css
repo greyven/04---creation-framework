@@ -290,13 +290,12 @@ footer.permanent
 /********/
 /* MENU */
 /********/
-
-
 ul.horizontal
 {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    margin-bottom: 10px;
     overflow: hidden;
     background-color: #333;
 }
@@ -314,3 +313,31 @@ ul.horizontal li a
 }
 ul.horizontal li:hover
 { background-color: var(--color5); }
+
+
+/*****************************************/
+/* MESSAGE ADMIN (NB POSTS, NB COMMENTS) */
+/*****************************************/
+.container.admin
+{
+	background-color: var(--color3);
+}
+h2.admin
+{
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+p.admin
+{ color: white; }
+.postTitle.admin
+{
+	margin-bottom: 0px;
+	height: 50px;
+	background-color: var(--color3);
+}
+.post.admin
+{
+	margin: 25px 0 25px 0;
+	background-color: var(--color1);
+}

@@ -13,6 +13,14 @@ class User extends Model
 		return ($user->rowCount() == 1);
 	}
 
+	// Vérifie qu'un pseudo existe dans la bdd
+	public function existLogin($login)
+	{
+		$sql = 'SELECT * FROM users WHERE user_login = ?';
+		$user = $this->executeRequest($sql, array($login));
+		return ($user->rowCount() == 1);
+	}
+
 	// Renvoie un utilisateur existant dans la bdd
 	public function getUser($login, $pwd)
 	{

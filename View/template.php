@@ -26,7 +26,7 @@
 				<div class="row">
 
 					<?php
-						if(isset($_GET['controler']) && $_GET['controler'] == "admin")
+						if(isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))
 						{ $class = "col-lg-12"; }
 						else
 						{ $class = "col-lg-8"; }
@@ -40,7 +40,7 @@
 					</section>
 
 					<?php
-						if(isset($_GET['controler']) && $_GET['controler'] == "admin")
+						if(isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))
 						{ }
 						else
 						{

@@ -59,7 +59,7 @@
 								?>
 							</div>
 							<div class="row">
-								<div class="col-lg-12 commContent">
+								<div class="col-lg-12 commContent" style="hyphens: auto;">
 									<?= $this->clean($oneComment['comm_content']); ?>
 								</div>
 							</div>
@@ -71,13 +71,34 @@
 		</div>
 		<div class="commFooter">
 			<form method="post" action="post/toComment/">
-				<input id="author" name="comm_author" type="text" placeholder="Votre pseudo" required/>
+				<input id="author" name="comm_author" type="text"
+					<?php
+						if(isset($_SESSION['user_login'])) echo 'value="'.$_SESSION['user_login'].'" readonly';
+						else echo 'placeholder="Votre pseudo" required';
+					?>
+				/>
 				<br/>
-				<textarea id="txtComment" name="comm_content" rows="6" placeholder="Votre commentaire" required></textarea>
+				<textarea id="txtComment" name="comm_content" rows="6" placeholder="Votre commentaire" maxlength="200" required>
+					<?php
+						if(isset($_SESSION['errorContent'])) echo $this->clean($_SESSION['errorContent']);
+					?>
+				</textarea>
 				<br/>
 				<input type="hidden" name="post_id" value="<?= $post['post_id'] ?>"/>
 				<input type="submit" value="Valider"/>
 			</form>
+			<?php
+				if(isset($_SESSION['errorMsg']))
+				{
+					?>
+					<div class="row">
+						<div class="col-lg-12">
+							<?= '<p>'.$_SESSION['errorMsg'].'</p>'; ?>
+						</div>
+					</div>
+					<?php
+				}
+			?>
 		</div>
 	</div>
 </div>

@@ -15,6 +15,16 @@ class Comment extends Model
 		return $comments;
 	}
 
+	// Renvoie la liste de tous les commentaires
+	public function getAllComments()
+	{
+		$sql = 'SELECT comm_id, comm_date, comm_author, comm_content, post_id, comm_reported
+				FROM comments
+				ORDER BY comm_id DESC';
+		$allComments = $this->executeRequest($sql);
+		return $allComments;
+	}
+
 	// Ajoute un commentaire dans la bdd
 	public function addComment($author, $content, $postId)
 	{
@@ -36,6 +46,26 @@ class Comment extends Model
 	public function reportComment($commId)
 	{
 		$sql = 'UPDATE comments SET comm_reported = 1 WHERE comm_id = ?';
+		$this->executeRequest($sql, array($commId));
+	}
+
+	// Renvoie la liste des commentaires signalés
+	public function getReportedComments()
+	{
+		$sql = 'SELECT comm_id, comm_date, comm_author, comm_content, c.post_id comm_postid, comm_reported, p.post_id, post_date, post_title, post_content
+				FROM comments c
+				INNER JOIN posts p
+				ON c.post_id = p.post_id
+				WHERE comm_reported = 1
+				ORDER BY p.post_id DESC, comm_id DESC';
+		$reportedComments = $this->executeRequest($sql);
+		return $reportedComments;
+	}
+
+	// Supprimer un commentaire
+	public function deleteComment($commId)
+	{
+		$sql = 'DELETE FROM comments WHERE comm_id = ?';
 		$this->executeRequest($sql, array($commId));
 	}
 }
