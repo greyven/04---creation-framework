@@ -75,6 +75,13 @@ class ControlerPost extends Controler
 	// Supprimer un commentaire
 	public function deleteComment()
 	{
+		$postId = $this->request->getParameter("post_id");
+		$commId = $this->request->getParameter("comm_id");
 
+		// Suppression du commentaire $commId
+		$this->comment->deleteComment($commId);
+
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->redirect("post","index",$postId);
 	}
 }

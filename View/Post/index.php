@@ -34,7 +34,7 @@
 									if(isset($_SESSION['user_id']))
 									{
 										?>
-										<div class="col-lg-6 commReport">
+										<div class="col-lg-2 commReport">
 											<?php
 												if($this->clean($oneComment['comm_reported']))
 												{
@@ -55,6 +55,21 @@
 											?>
 										</div>
 										<?php
+
+										if(isset($_SESSION['admin']) && $_SESSION['admin'])
+										{
+											?>
+											<div class="col-lg-offset-2 col-lg-2">
+												<div class="floatRight">
+													[
+													<a href="post/deleteComment/<?= $post['post_id'] ?>/<?= $oneComment['comm_id'] ?>">
+														<span class="deleteComment">Supprimer</span>
+													</a>
+													]
+												</div>
+											</div>
+											<?php
+										}
 									}
 								?>
 							</div>

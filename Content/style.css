@@ -225,7 +225,6 @@ footer.permanent
 	margin-left: 10px;
 }
 
-
 /****************/
 /* COMMENTAIRES */
 /****************/
@@ -286,7 +285,6 @@ footer.permanent
 /* ADMINISTRATION */
 /******************/
 
-
 /********/
 /* MENU */
 /********/
@@ -314,7 +312,6 @@ ul.horizontal li a
 ul.horizontal li:hover
 { background-color: var(--color5); }
 
-
 /*****************************************/
 /* MESSAGE ADMIN (NB POSTS, NB COMMENTS) */
 /*****************************************/
@@ -341,3 +338,10 @@ p.admin
 	margin: 25px 0 25px 0;
 	background-color: var(--color1);
 }
+
+/*******************************/
+/* POST, SUPPRIMER COMMENTAIRE */
+/*******************************/
+
+.deleteComment
+{ color: #FFFFFF; }
