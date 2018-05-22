@@ -2,9 +2,7 @@
 	if(isset($_SESSION['admin']) && $_SESSION['admin'])
 	{
 		$this->title = 'Mon blog - Administration';
-
-		require_once('View/menuAdmin.php');
-		?>
+?>
 		
 		<div class="container">
 			
@@ -22,7 +20,7 @@
 			<div class="row">
 				
 				<!-- COMMENTAIRES SIGNALÉS -->
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					</pre>
 					<?php
 						foreach ($reportedComments as $onePost)
@@ -55,11 +53,6 @@
 							<?php
 						}
 					?>
-				</div>
-
-				<!-- TOUS LES COMMENTAIRES -->
-				<div class="col-lg-6">
-					
 				</div>
 			</div>
 		</div>

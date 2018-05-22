@@ -94,6 +94,7 @@ hr
 }
 .filter
 {
+	z-index: -1;
 	background-color: var(--color2);
 	width: 100%;
 	min-height: 100%;
@@ -172,6 +173,11 @@ footer.permanent
 #content
 {
 	margin-top: 110px;
+	margin-bottom: 70px;
+}
+#adminContent
+{
+	margin-top: 0px;
 	margin-bottom: 70px;
 }
 
@@ -290,6 +296,8 @@ footer.permanent
 /********/
 /* MENU */
 /********/
+#adminMenu
+{ z-index: 10; }
 ul.horizontal
 {
     list-style-type: none;
@@ -300,7 +308,7 @@ ul.horizontal
     background-color: #333;
 }
 ul.horizontal li
-{ float: left; }
+{ display: inline-block; }
 ul.horizontal li a.active
 { background-color: var(--color3); }
 ul.horizontal li a
@@ -344,7 +352,6 @@ p.admin
 /*******************************/
 /* POST, SUPPRIMER COMMENTAIRE */
 /*******************************/
-
 .deleteComment
 { color: #FFFFFF; }
 

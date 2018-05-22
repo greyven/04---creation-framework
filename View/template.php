@@ -23,23 +23,39 @@
 	<title><?= $title ?></title> <!-- titre spécifique -->
 </head>
 <body class="bg<?= mt_rand(1,3) ?>">
+	
+	<!-- SI C'EST UN CONTROLLEUR D'ADMINISTRATION -->
+	<?php
+		if((isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))) $adminControler = true;
+		else $adminControler = false;
+	?>
+
 	<div id="global" class="container">
 		
 		<!-- FILTRE COLORÉ -->
 		<div class="filter"></div>
 
 		<!-- HEADER -->
-		<header class="permanent verticalAlignCenter horizontalAlignCenter">
-		    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
-		</header>
+		<?php
+			if($adminControler) require_once('View/menuAdmin.php');
+			else
+			{
+				?>
+				<header class="permanent verticalAlignCenter horizontalAlignCenter">
+				    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
+				</header>
+				<?php
+			}
+		?>
 
 		<!-- CONTENT -->
-		<div id="content">
+		<div <?php if($adminControler) echo 'id="adminContent"';
+				   else echo 'id="content"'; ?> >
 			<div class="container">
 				<div class="row">
 
 					<?php
-						if(isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))
+						if($adminControler)
 						{ $class = "col-lg-12"; }
 						else
 						{ $class = "col-lg-8"; }
@@ -53,9 +69,7 @@
 					</section>
 
 					<?php
-						if(isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))
-						{ }
-						else
+						if(!$adminControler)
 						{
 							?>
 							<section id="rightContent" class="col-lg-4">
@@ -117,8 +131,13 @@
 						if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1)
 						{
 							?>
-							<div class="col-lg-6"></div>
-							<div class="col-lg-6">
+							<div class="col-lg-offset-1 col-lg-6">
+								<div class="floatRight">
+									<a href="home">Retour à l'accueil</a>
+								</div>
+							</div>
+							<div class="col-lg-1">/</div>
+							<div class="col-lg-4">
 								<a href="admin">Administration</a>
 							</div>
 							<?php

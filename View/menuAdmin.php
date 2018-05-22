@@ -1,6 +1,5 @@
-<ul class="horizontal shadow">
-	<li><a href="home" class="active">Accueil</a></li>
-	<li><a href="createpost">Créer billet</a></li>
-	<li><a href="modifypost">Modifier billet</a></li>
+<ul id="adminMenu" class="horizontal shadow">
+	<li><a href="admin">Gérer billets</a></li>
+	<li><a href="createpost" class="active">Créer billet</a></li>
 	<li><a href="managecomments">Gérer commentaires</a></li>
 </ul>

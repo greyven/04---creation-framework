@@ -2,9 +2,7 @@
 	if(isset($_SESSION['admin']) && $_SESSION['admin'])
 	{
 		$this->title = 'Mon blog - Administration';
-
-		require_once('View/menuAdmin.php');
-		?>
+?>
 		
 		<div class="container admin shadow">
 			<div class="row">
