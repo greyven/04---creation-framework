@@ -93,11 +93,7 @@
 					?>
 				/>
 				<br/>
-				<textarea id="txtComment" name="comm_content" rows="6" placeholder="Votre commentaire" maxlength="200" required>
-					<?php
-						if(isset($_SESSION['errorContent'])) echo $this->clean($_SESSION['errorContent']);
-					?>
-				</textarea>
+				<textarea id="txtComment" name="comm_content" rows="6" placeholder="Votre commentaire" maxlength="200" required></textarea>
 				<br/>
 				<input type="hidden" name="post_id" value="<?= $post['post_id'] ?>"/>
 				<input type="submit" value="Valider"/>

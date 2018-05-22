@@ -20,7 +20,7 @@
 					<form name="createPost" id="createPost" action="index.html" method="post">
 						<div class="row">
 							<div class="col-lg-12">
-								<textarea id="createPost" name="createPost" rows="25"></textarea>	
+								<textarea class="tiny" name="createPost" rows="27"></textarea>	
 							</div>
 						</div>
 						<button type="submit">Valider</button>

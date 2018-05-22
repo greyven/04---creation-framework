@@ -23,8 +23,9 @@
 				
 				<!-- COMMENTAIRES SIGNALÉS -->
 				<div class="col-lg-6">
+					</pre>
 					<?php
-						foreach ($allPosts as $onePost)
+						foreach ($reportedComments as $onePost)
 						{
 							?>
 							<article class="post admin shadow">
@@ -33,9 +34,11 @@
 										<h1 class="postLink"><?= $this->clean($onePost['post_title']) ?></h1>
 									</a>
 								</header>
+					<pre>
+						<?php var_dump($onePost); ?></pre>
 								<div class="homeContent">
 									<?php
-										foreach ($reportedComments as $oneReportedComment)
+										foreach ([] as $oneReportedComment)
 										{
 											if($oneReportedComment['comm_postid'] == $onePost['post_id'])
 											{

@@ -58,8 +58,35 @@ class Comment extends Model
 				ON c.post_id = p.post_id
 				WHERE comm_reported = 1
 				ORDER BY p.post_id DESC, comm_id DESC';
-		$reportedComments = $this->executeRequest($sql);
-		return $reportedComments;
+		//$reportedComments = $this->executeRequest($sql);
+		//return $reportedComments;
+
+
+		$sql = 'SELECT * FROM `posts` INNER JOIN comments ON comments.post_id = posts.post_id WHERE comments.comm_reported = 1';
+		return $this->executeRequest($sql);
+
+
+		// $ret = [];
+
+  //       10 => [postTile, postId, postDate, Comments => []]
+
+  //       $posts = [];
+
+		// while ($post = $reportedComments->fetch())){
+	 //        if(!isset($posts[$post['post_id']]){
+	 //        	$modelPost = new Post();
+	 //        	$modelPost->setContent($post['post_content']);
+	 //        	$modelPost->addComment()
+  //               $posts[$post['post_id'] = $modelPost
+
+	 //        }else{
+	 //        	$posts[$post['post_id']->addComment($post['comm_content']);
+	 //        }
+		// }
+		// return $posts;
+
+
+
 	}
 
 	// Supprimer un commentaire
