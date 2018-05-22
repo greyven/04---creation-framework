@@ -56,6 +56,8 @@ body
 { margin-right: 10px; }
 .marginLeft10
 { margin-left: 10px; }
+.marginBottom10
+{ margin-bottom: 10px; }
 .padding10
 { padding: 10px; }
 .floatRight
@@ -345,3 +347,7 @@ p.admin
 
 .deleteComment
 { color: #FFFFFF; }
+
+/****************/
+/* CRÉER BILLET */
+/****************/
