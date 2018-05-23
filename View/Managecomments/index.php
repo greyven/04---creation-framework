@@ -22,7 +22,7 @@
 				
 				<!-- COMMENTAIRES SIGNALÉS -->
 				<div class="col-lg-12">
-					<table class="manageComments">
+					<table class="manageComments shadow">
 						<tbody>
 							<?php
 								$lastPostId = 0;
