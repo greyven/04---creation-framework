@@ -70,7 +70,7 @@ class ControlerPost extends Controler
 		$this->redirect("post","index",$postId);
 	}
 
-	// Supprimer un commentaire
+	// Supprimer un commentaire depuis un post
 	public function deleteComment()
 	{
 		$postId = $this->request->getParameter("post_id");
@@ -81,5 +81,17 @@ class ControlerPost extends Controler
 
 		// Execution de l'action par defaut pour actualiser l'affichage du post
 		$this->redirect("post","index",$postId);
+	}
+
+	// Supprimer un commentaire depuis l'administration
+	public function deleteCommentFromAdmin()
+	{
+		$commId = $this->request->getParameter("comm_id");
+
+		// Suppression du commentaire $commId
+		$this->comment->deleteComment($commId);
+
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->redirect("managecomments","index");
 	}
 }

@@ -18,7 +18,10 @@ class Post extends Model
 
     public function getAllWithReportedComments()
 	{
-		$sql = 'SELECT * FROM `posts` INNER JOIN comments ON comments.post_id = posts.post_id WHERE comments.comm_reported = 1';
+		$sql = 'SELECT * FROM `posts`
+				INNER JOIN comments ON comments.post_id = posts.post_id
+				WHERE comments.comm_reported = 1
+				ORDER BY posts.post_id';
 		return $this->executeRequest($sql);
 	}
 

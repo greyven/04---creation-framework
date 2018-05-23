@@ -374,8 +374,25 @@ p.admin
 	table-layout:fixed;
     width:100%;
 }
-td
+tr.comment
+{ background-color: var(--color1); }
+td.author
+{ width: 1px; }
+td.comment
 {
 	word-wrap:break-word;
 	word-break:break-all;
+	color: black;
+}
+td div div.commands
+{
+	margin-right: 10px;
+	color: black;
+}
+.marginComment
+{
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: right;
 }

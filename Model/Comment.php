@@ -40,6 +40,13 @@ class Comment extends Model
 		$this->executeRequest($sql, array($commId));
 	}
 
+	// Désignaler un commentaire jugé déplacé
+	public function unreportComment($commId)
+	{
+		$sql = 'UPDATE comments SET comm_reported = 0 WHERE comm_id = ?';
+		$this->executeRequest($sql, array($commId));
+	}
+
 	// Supprimer un commentaire
 	public function deleteComment($commId)
 	{

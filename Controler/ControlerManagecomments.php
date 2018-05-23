@@ -24,4 +24,16 @@ class ControlerManagecomments extends ControlerSecured
 		$postsWithReportedComments = $this->post->getAllWithReportedComments();
 		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'postsWithReportedComments' => $postsWithReportedComments));
 	}
+
+	// Désignaler un commentaire jugé déplacé
+	public function unreport()
+	{
+		$commId = $this->request->getParameter("comm_id");
+
+		// Mise à jour du commentaire $commId
+		$this->comment->unreportComment($commId);
+
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->redirect("managecomments","index");
+	}
 }
