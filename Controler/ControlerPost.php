@@ -54,8 +54,6 @@ class ControlerPost extends Controler
 			
 			// Execution de l'action par defaut pour actualiser l'affichage du post
 			$this->redirect("post","index",$postId);
-			unset($_SESSION['errorContent']);
-			unset($_SESSION['errorMsg']);
 		}
 	}
 

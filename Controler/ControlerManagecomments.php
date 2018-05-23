@@ -21,9 +21,7 @@ class ControlerManagecomments extends ControlerSecured
 	{
 		$postsNb = $this->post->countPosts();
 		$commentsNb = $this->comment->countComments();
-		$allPosts = $this->post->getAllPosts();
-		$reportedComments = $this->post->getAllWithReportedComments();
-		$allComments = $this->comment->getAllComments();
-		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'allPosts' => $allPosts, 'reportedComments' => $reportedComments, 'allComments' => $allComments));
+		$postsWithReportedComments = $this->post->getAllWithReportedComments();
+		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'postsWithReportedComments' => $postsWithReportedComments));
 	}
 }

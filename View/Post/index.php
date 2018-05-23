@@ -74,7 +74,7 @@
 								?>
 							</div>
 							<div class="row">
-								<div class="col-lg-12 commContent" style="hyphens: auto;">
+								<div class="col-lg-12 commContent hyphensAuto">
 									<?= $this->clean($oneComment['comm_content']); ?>
 								</div>
 							</div>
