@@ -1,6 +1,6 @@
 <?php $this->title = 'Mon blog'; ?>
 
-<div class="row horizontalAlignCenter">
+<div class="row textHorizontalAlignCenter">
 	<fieldset>
 		<?php
 
@@ -51,7 +51,7 @@
 	} ?>
 </div>
 
-<div class="row horizontalAlignCenter">
+<div class="row textHorizontalAlignCenter">
 	<?php
 		// --------------- Étape 3 -----------------
 	    // Créer les liens vers les pages

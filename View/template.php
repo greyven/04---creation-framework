@@ -41,7 +41,7 @@
 			else
 			{
 				?>
-				<header class="permanent verticalAlignCenter horizontalAlignCenter">
+				<header class="permanent verticalAlignCenter textHorizontalAlignCenter">
 				    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
 				</header>
 				<?php
@@ -63,7 +63,7 @@
 					<section id="leftContent" class="<?= $class ?>">
 						<div class="row">
 							<div class="col-lg-offset-1 col-lg-10">
-								<?= $content ?> <!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS -->
+								<?= $content ?> <!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
 							</div>
 						</div>
 					</section>
@@ -122,7 +122,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="horizontalAlignCenter">
+					<div class="textHorizontalAlignCenter">
 						Blog réalisé avec PHP, HTML5 et CSS.
 					</div>
 				</div>

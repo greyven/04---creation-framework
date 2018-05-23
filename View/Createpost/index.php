@@ -15,13 +15,26 @@
 		<div class="container admin shadow">
 			<div class="row">
 				<div class="col-lg-12">
-					<form name="createPost" id="createPost" action="index.html" method="post">
+					<form name="createPost" id="createPost" action="#" method="post">
 						<div class="row">
 							<div class="col-lg-12">
-								<textarea class="tiny" name="createPost" rows="27"></textarea>	
+								<div class="horizontalAlignCenter">
+									<input type="text" name="createPostTitle" class="marginLeft10 marginTop10 marginBottom10" placeholder="Titre du billet" required>
+								</div>
 							</div>
 						</div>
-						<button type="submit">Valider</button>
+						<div class="row">
+							<div class="col-lg-12">
+								<textarea class="tiny" name="createPostContent" rows="27" required></textarea>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="horizontalAlignCenter">
+									<button type="submit" class="createPostBttn marginTop10 marginBottom10">Valider</button>	
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

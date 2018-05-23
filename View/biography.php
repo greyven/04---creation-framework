@@ -5,7 +5,7 @@
 			<div class="col-lg-offset-1 col-lg-6">
 				<img class="photoJean shadow" src="Content/Images/avatar/jean_forteroche.png"/>
 			</div>
-			<div class="col-lg-5 horizontalAlignCenter">
+			<div class="col-lg-5 textHorizontalAlignCenter">
 				<br/>
 				<br/>
 				<br/>

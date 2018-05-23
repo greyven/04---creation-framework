@@ -44,8 +44,14 @@ body
 	background-attachment: fixed;
 	overflow-x: hidden;
 }
-.horizontalAlignCenter
+.textHorizontalAlignCenter
 { text-align: center; }
+.horizontalAlignCenter
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
 .verticalAlignCenter
 {
 	display: flex; /* contexte sur le parent */
@@ -58,6 +64,8 @@ body
 { margin-left: 10px; }
 .marginBottom10
 { margin-bottom: 10px; }
+.marginTop10
+{ margin-top: 10px; }
 .padding10
 { padding: 10px; }
 .floatRight
