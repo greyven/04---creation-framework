@@ -16,7 +16,7 @@
 			// en mode avancé, cela permet de choisir les plugins
 			theme : "modern", 
 			// langue
-			language : "fr_FR", 
+			language : "fr_FR",
 		});
 	</script>
 
