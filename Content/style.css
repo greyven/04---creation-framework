@@ -19,6 +19,7 @@
 	--color3: rgba(144,111,169,1); /* .postFooter, bg connexion et inscription, bouton accueil (admin) */
 	--color4: rgba(255,255,255,.1); /* .comment */
 	--color5: rgba(80,40,115,1); /* menu admin :hover; */
+	--color6: rgba(44,106,165,1); /* .postTitle */
 }
 body.bg1
 { background-image: url('Images/bg/bg1.jpg'); }
@@ -222,7 +223,7 @@ footer.permanent
 {
 	margin-bottom: 0px;
 	height: 70px;
-	background-color: rgb(44,106,165);
+	background-color: var(--color6);
 }
 .postLink
 {
@@ -241,7 +242,16 @@ footer.permanent
 	margin: 10px;
 }
 div.homeContent p, article.post p
-{ margin-left: 10px; }
+{
+	margin-left: 10px;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+}
 .postFooter
 {
 	background-color: var(--color3);
