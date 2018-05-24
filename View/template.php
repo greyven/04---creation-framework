@@ -11,7 +11,7 @@
     <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript" src="tinymce/jquery.tinymce.min.js"></script>
 	<script type="text/javascript">
-		tinyMCE.init({
+		/*tinyMCE.init({
 			// id ou class, des textareas
 			selector : "textarea.tiny", 
 			// en mode avancé, cela permet de choisir les plugins
@@ -25,7 +25,25 @@
 		            tinymce.triggerSave();
 		        });
 		    }
+		});*/
+
+		tinymce.init
+		({
+			selector: 'textarea.tiny',
+			theme: 'modern',
+			plugins: 'print preview searchreplace autolink directionality visualblocks image link media table charmap hr insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+			toolbar1: 'sizeselect fontselect fontsizeselect bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+			fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+			branding: false,
+
+			setup: function (editor)
+			{
+		        editor.on('change', function () {
+		            tinymce.triggerSave();
+		        });
+		    }
 		});
+
 	</script>
 
 	<title><?= $title ?></title> <!-- titre spécifique -->

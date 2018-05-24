@@ -19,7 +19,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="horizontalAlignCenter">
-									<input type="text" name="createPostTitle" class="marginTop10 marginBottom10" placeholder="Titre du billet" required>
+									<input type="text" name="createPostTitle" class="marginTop10 marginBottom10" placeholder="Titre du billet" size="40" required>
 								</div>
 							</div>
 						</div>
@@ -31,7 +31,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="horizontalAlignCenter">
-									<button type="submit" class="createPostBttn marginTop10 marginBottom10">Valider</button>	
+									<button type="submit" class="createPostBttn marginTop10 marginBottom10">Valider</button>
 								</div>
 							</div>
 						</div>
