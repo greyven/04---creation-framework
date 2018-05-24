@@ -30,14 +30,14 @@
 	{
 		?>
 		<article class="post shadow">
-			<header class="postTitle verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($onePost['post_image']); ?>')">
+			<header class="postTitle verticalAlignCenter">
 				<a href="<?= "post/index/".$this->clean($onePost['post_id']) ?>">
 					<h1 class="postLink"><?= $this->clean($onePost['post_title']) ?></h1>
 				</a>
 			</header>
 			<div class="homeContent">
 				<p class="postContent">
-					<?= $this->clean($onePost['post_content']) ?>
+					<?= $onePost['post_content'] ?>
 				</p>
 			</div>
 			<footer class="postFooter verticalAlignCenter">

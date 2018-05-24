@@ -2,10 +2,10 @@
 
 <article class="post shadow">
 
-	<header class="postTitle verticalAlignCenter" style="background-image: url('Content/Images/post/<?= $this->clean($post['post_image']); ?>')" >
+	<header class="postTitle verticalAlignCenter">
 		<h1 class="postLink"><?= $this->clean($post['post_title']); ?></h1>
 	</header>
-	<p class="postContent"><?= $this->clean($post['post_content']); ?></p>
+	<p class="postContent"><?= $post['post_content']; ?></p>
 	<footer class="postFooter verticalAlignCenter">
 		<div class="postFooterText">
 			Jean Forteroche, le

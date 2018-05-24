@@ -221,7 +221,7 @@ footer.permanent
 .postTitle
 {
 	margin-bottom: 0px;
-	height: 100px;
+	height: 70px;
 	background-color: rgb(44,106,165);
 }
 .postLink
@@ -240,6 +240,8 @@ footer.permanent
 	color: black;
 	margin: 10px;
 }
+div.homeContent p, article.post p
+{ margin-left: 10px; }
 .postFooter
 {
 	background-color: var(--color3);

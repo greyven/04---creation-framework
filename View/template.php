@@ -9,6 +9,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="tinymce/jquery.tinymce.min.js"></script>
 	<script type="text/javascript">
 		tinyMCE.init({
 			// id ou class, des textareas
@@ -17,6 +18,13 @@
 			theme : "modern", 
 			// langue
 			language : "fr_FR",
+
+			setup: function (editor)
+			{
+		        editor.on('change', function () {
+		            tinymce.triggerSave();
+		        });
+		    }
 		});
 	</script>
 
