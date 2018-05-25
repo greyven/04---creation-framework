@@ -19,7 +19,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="horizontalAlignCenter">
-									<input type="text" name="createPostTitle" class="marginTop10 marginBottom10" placeholder="Titre du billet" size="40" required>
+									<input type="text" name="createPostTitle" class="marginTop10 marginBottom10" placeholder="Titre du billet" size="55" maxlength="50" required>
 								</div>
 							</div>
 						</div>

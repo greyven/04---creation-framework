@@ -38,6 +38,13 @@
 													<div class="col-lg-4">
 														<div class="white floatRight marginRight10">
 															[
+															<a class="white" href="<?= "modifypost/index/".$this->clean($onePost['post_id']) ?>">
+																Modifier
+															</a>
+															]
+														</div>
+														<div class="white floatRight marginRight10">
+															[
 															<a class="white" href="<?= "admin/deletePost/".$this->clean($onePost['post_id']) ?>">
 																Supprimer
 															</a>

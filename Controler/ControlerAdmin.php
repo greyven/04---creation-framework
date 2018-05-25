@@ -36,13 +36,4 @@ class ControlerAdmin extends ControlerSecured
 		// Execution de l'action par defaut pour actualiser l'affichage du post
 		$this->redirect("admin","index");
 	}
-
-	// Modifier un post
-	public function modifyPost()
-	{
-		$postId = $this->request->getParameter("post_id");
-
-		// Execution de l'action par defaut pour actualiser l'affichage du post
-		$this->redirect("modifypost","index", $postId);
-	}
 }
