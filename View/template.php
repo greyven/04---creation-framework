@@ -50,10 +50,18 @@
 </head>
 <body class="bg<?= mt_rand(1,3) ?>">
 	
-	<!-- SI C'EST UN CONTROLLEUR D'ADMINISTRATION -->
 	<?php
+		// SI L'ADMIN EST CONNECTÉ
+		if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1) $admin = true;
+		else $admin = false;
+
+		// SI C'EST UN CONTROLLEUR D'ADMINISTRATION
 		if((isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))) $adminControler = true;
 		else $adminControler = false;
+
+		// SI L'ADMIN EST CO ET CONTROLLEUR D'ADMINISTRATION
+		if($admin && $adminControler) $adminAndControlerOk = true;
+		else $adminAndControlerOk = false;
 	?>
 
 	<div id="global" class="container">
@@ -63,7 +71,7 @@
 
 		<!-- HEADER -->
 		<?php
-			if($adminControler) require_once('View/menuAdmin.php');
+			if($adminAndControlerOk) require_once('View/menuAdmin.php');
 			else
 			{
 				?>
@@ -75,13 +83,13 @@
 		?>
 
 		<!-- CONTENT -->
-		<div <?php if($adminControler) echo 'id="adminContent"';
+		<div <?php if($adminAndControlerOk) echo 'id="adminContent"';
 				   else echo 'id="content"'; ?> >
 			<div class="container">
 				<div class="row">
 
 					<?php
-						if($adminControler)
+						if($adminAndControlerOk)
 						{ $class = "col-lg-12"; }
 						else
 						{ $class = "col-lg-8"; }
@@ -95,7 +103,7 @@
 					</section>
 
 					<?php
-						if(!$adminControler)
+						if(!$adminAndControlerOk)
 						{
 							?>
 							<section id="rightContent" class="col-lg-4">
@@ -154,7 +162,7 @@
 				</div>
 				<div class="col-lg-3">
 					<?php
-						if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1)
+						if($admin)
 						{
 							?>
 							<div class="col-lg-offset-1 col-lg-6">
