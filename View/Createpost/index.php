@@ -2,7 +2,7 @@
 	if(isset($_SESSION['admin']) && $_SESSION['admin'])
 	{
 		$this->title = 'Mon blog - Administration';
-?>
+		?>
 		
 		<div class="container admin shadow marginBottom10">
 			<div class="row">
