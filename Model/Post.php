@@ -9,22 +9,21 @@ class Post extends Model
 	{
 		$sql = 'SELECT post_id, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS post_date, post_title, post_content
 				FROM posts
-				ORDER BY post_id
-				DESC LIMIT ' . $firstPost . ', ' . $nbPosts;
+				ORDER BY post_id DESC
+				LIMIT ' . $firstPost . ', ' . $nbPosts;
 		$posts = $this->executeRequest($sql);
 		return $posts;
 	}
 
-
-    public function getAllWithReportedComments()
+	// Renvoie la liste de tous les posts triés par id décroissant
+	public function getAllPosts()
 	{
-		$sql = 'SELECT * FROM `posts`
-				INNER JOIN comments ON comments.post_id = posts.post_id
-				WHERE comments.comm_reported = 1
-				ORDER BY posts.post_id';
-		return $this->executeRequest($sql);
+		$sql = 'SELECT post_id, post_title
+				FROM posts
+				ORDER BY post_id DESC';
+		$posts = $this->executeRequest($sql);
+		return $posts;
 	}
-
 
 	// Renvoie les infos d'un post
 	public function getPost($postId)
@@ -35,6 +34,15 @@ class Post extends Model
 		$post = $this->executeRequest($sql, array($postId));
 		if($post->rowCount() > 0) return $post->fetch();
 		else throw new Exception("Aucun post ne correspond à l'id");
+	}
+
+    public function getAllWithReportedComments()
+	{
+		$sql = 'SELECT * FROM `posts`
+				INNER JOIN comments ON comments.post_id = posts.post_id
+				WHERE comments.comm_reported = 1
+				ORDER BY posts.post_id';
+		return $this->executeRequest($sql);
 	}
 
 	// Renvoie le nb total de posts
@@ -64,7 +72,7 @@ class Post extends Model
 	}
 
 	// Supprime un post existant
-	public function deletePost($postId)
+	public function destroyPost($postId)
 	{
 		$sql = 'DELETE FROM posts WHERE post_id = ?';
 		$this->executeRequest($sql, array($postId));

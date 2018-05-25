@@ -21,6 +21,28 @@ class ControlerAdmin extends ControlerSecured
 	{
 		$postsNb = $this->post->countPosts();
 		$commentsNb = $this->comment->countComments();
-		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb));
+		$allPosts = $this->post->getAllPosts();
+		$this->generateView(array('postsNb' => $postsNb, 'commentsNb' => $commentsNb, 'allPosts' => $allPosts));
+	}
+
+	// Supprimer un post
+	public function deletePost()
+	{
+		$postId = $this->request->getParameter("post_id");
+
+		// Suppression du post
+		$this->post->destroyPost($postId);
+
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->redirect("admin","index");
+	}
+
+	// Modifier un post
+	public function modifyPost()
+	{
+		$postId = $this->request->getParameter("post_id");
+
+		// Execution de l'action par defaut pour actualiser l'affichage du post
+		$this->redirect("modifypost","index", $postId);
 	}
 }
