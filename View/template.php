@@ -157,7 +157,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="textHorizontalAlignCenter">
-						Blog réalisé avec PHP, HTML5 et CSS.
+						Blog réalisé par Stephen Séré avec PHP, HTML5, CSS et un peu de JavaScript pour l'inclusion de TinyMCE.
 					</div>
 				</div>
 				<div class="col-lg-3">
