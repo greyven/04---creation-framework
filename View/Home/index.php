@@ -29,24 +29,26 @@
 	foreach ($posts as $onePost)
 	{
 		?>
-		<article class="post shadow">
-			<header class="postTitle verticalAlignCenter">
-				<a href="<?= "post/index/".$this->clean($onePost['post_id']) ?>">
-					<h1 class="postLink"><?= $this->clean($onePost['post_title']) ?></h1>
-				</a>
-			</header>
-			<div class="homeContent">
-				<p class="postContent">
-					<?= $onePost['post_content'] ?>
-				</p>
-			</div>
-			<footer class="postFooter verticalAlignCenter">
-				<div class="postFooterText">
-					Jean Forteroche, le
-					<time><?= $this->clean($onePost['post_date']) ?></time>
+		<div class="col-lg-12 col-xs-12">
+			<article class="post shadow">
+				<header class="postTitle verticalAlignCenter">
+					<a href="<?= "post/index/".$this->clean($onePost['post_id']) ?>">
+						<h1 class="postLink"><?= $this->clean($onePost['post_title']) ?></h1>
+					</a>
+				</header>
+				<div class="homeContent">
+					<p class="postContent">
+						<?= $onePost['post_content'] ?>
+					</p>
 				</div>
-			</footer>
-		</article>
+				<footer class="postFooter verticalAlignCenter">
+					<div class="postFooterText">
+						Jean Forteroche, le
+						<time><?= $this->clean($onePost['post_date']) ?></time>
+					</div>
+				</footer>
+			</article>
+		</div>
 		<?php
 	} ?>
 </div>

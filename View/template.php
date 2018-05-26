@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<base href="<?= $webRoot ?>">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Content/style.css">
@@ -75,9 +76,13 @@
 			else
 			{
 				?>
-				<header class="permanent verticalAlignCenter textHorizontalAlignCenter">
-				    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
-				</header>
+				<div class="row">
+					<div class="col-lg-12">
+						<header class="permanent verticalAlignCenter textHorizontalAlignCenter">
+						    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
+						</header>
+					</div>
+				</div>
 				<?php
 			}
 		?>
@@ -90,13 +95,13 @@
 
 					<?php
 						if($adminAndControlerOk)
-						{ $class = "col-lg-12"; }
+						{ $class = "col-lg-12 hideForPhone"; }
 						else
-						{ $class = "col-lg-8"; }
+						{ $class = "col-lg-8 col-md-8 col-sm-8 col-xs-12"; }
 					?>
 					<section id="leftContent" class="<?= $class ?>">
 						<div class="row">
-							<div class="col-lg-offset-1 col-lg-10">
+							<div class="col-lg-offset-1 col-lg-10 col-xs-12 marginPhone">
 								<?= $content ?> <!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
 							</div>
 						</div>
@@ -106,7 +111,7 @@
 						if(!$adminAndControlerOk)
 						{
 							?>
-							<section id="rightContent" class="col-lg-4">
+							<section id="rightContent" class="col-lg-4 hideForPhone">
 								<?php require_once('View/biography.php'); ?> <!-- AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
 							</section>
 							<?php
@@ -119,35 +124,39 @@
 		<!-- FOOTER -->
 		<footer class="permanent verticalAlignCenter">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 					<div class="row">
 						<?php
 							if(isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0)
 							{
 								?>
-								<div class="col-lg-3">
-									<div class="floatRight">
-										<?= $_SESSION['user_login']; ?>
+								<div class="footerLinksPhone horizontalAlignCenter">
+									<div class="col-lg-3 col-xs-5">
+										<div class="floatRight">
+											<?= $_SESSION['user_login']; ?>
+										</div>
 									</div>
-								</div>
-								<div class="col-lg-1">-</div>
-								<div class="col-lg-6">
-									<a href="connexion/deconnect">Déconnexion</a>
+									<div class="col-lg-1 col-xs-1 textHorizontalAlignCenter">-</div>
+									<div class="col-lg-6 col-xs-6">
+										<a href="connexion/deconnect">Déconnexion</a>
+									</div>
 								</div>
 								<?php
 							}
 							else
 							{
 								?>
-								<div class="col-lg-3">
-									<div class="floatRight">
-										<a href="connexion">Connexion</a>
+								<div class="footerLinksPhone horizontalAlignCenter">
+									<div class="col-lg-3 col-xs-5">
+										<div class="floatRight">
+											<a href="connexion">Connexion</a>
+										</div>
 									</div>
-								</div>
-								<div class="col-lg-1">/</div>
-								<div class="col-lg-6">
-									<div class="floatLeft">
-										<a href="register">Inscription</a>
+									<div class="col-lg-1 col-xs-2 textHorizontalAlignCenter">/</div>
+									<div class="col-lg-6 col-xs-5">
+										<div class="floatLeft">
+											<a href="register">Inscription</a>
+										</div>
 									</div>
 								</div>
 								<?php
@@ -155,12 +164,12 @@
 						?>
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 hideForPhone">
 					<div class="textHorizontalAlignCenter">
 						Blog réalisé par Stephen Séré avec PHP, HTML5, CSS et un peu de JavaScript pour l'inclusion de TinyMCE.
 					</div>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-md-3 col-sm-3 hideForPhone">
 					<?php
 						if($admin)
 						{

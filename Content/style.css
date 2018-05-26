@@ -9,6 +9,7 @@
    - le parent de body également en "height: 100%". */
 
 
+
 /***************/
 /* BACKGROUNDS */
 /***************/
@@ -189,10 +190,18 @@ footer.permanent
 /*********************************************/
 /* CONTENU PARTIE GAUCHE (POSTS ET COMMENTS) */
 /*********************************************/
+@media screen and (min-width: 768px)
+{
+	#content
+	{
+		margin-top: 110px;
+		margin-bottom: 70px;
+	}
+}
 #content
 {
-	margin-top: 110px;
-	margin-bottom: 70px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 }
 #adminContent
 {
@@ -435,3 +444,58 @@ tr.space
 }
 .white
 { color: #FFF; }
+
+
+
+
+/*******************/
+/* BREAKING POINTS */
+/*******************/
+@media screen and (max-width: 767px)
+{
+	#content
+	{ margin-bottom: 25px; }
+	.hideForPhone
+	{ display: none; }
+	header.permanent
+	{ height: 30px; }
+	footer.permanent
+	{ height: 30px; }
+	h2.blogTitle
+	{ font-size: 22px; }
+	.footerLinksPhone
+	{ margin-left: 10px; }
+	.marginPhone
+	{
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.pagination
+	{
+		font-size: 20px;
+		width: 28px;
+		background-color: var(--color1);
+		border-radius: 9px;
+	}
+	.pTop
+	{ margin-bottom: 0px; }
+	.pBottom
+	{ margin-top: 0px; }
+	.post
+	{ margin: 20px 0 20px 0; }
+	h1.postLink
+	{
+		margin: 0 0 0 10px;
+		font-size: 20px;
+	}
+	.postTitle
+	{
+		height: auto;
+		width: auto;
+		min-height: 40px;
+	}
+	.homeContent
+	{ width: auto; }
+	.postFooter
+	{ width: auto; }
+}
