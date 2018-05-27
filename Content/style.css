@@ -164,7 +164,7 @@ footer.permanent
 /****************************/
 .biography.affix
 {
-	top: 110px;
+	top: 111px;
 	bottom: 200px;
 }
 .biography
@@ -190,18 +190,10 @@ footer.permanent
 /*********************************************/
 /* CONTENU PARTIE GAUCHE (POSTS ET COMMENTS) */
 /*********************************************/
-@media screen and (min-width: 768px)
-{
-	#content
-	{
-		margin-top: 110px;
-		margin-bottom: 70px;
-	}
-}
 #content
 {
-	margin-top: 20px;
-	margin-bottom: 50px;
+	margin-top: 110px;
+	margin-bottom: 70px;
 }
 #adminContent
 {
@@ -454,7 +446,10 @@ tr.space
 @media screen and (max-width: 767px)
 {
 	#content
-	{ margin-bottom: 25px; }
+	{
+		margin-top: 20px;
+		margin-bottom: 25px;
+	}
 	.hideForPhone
 	{ display: none; }
 	header.permanent
@@ -469,6 +464,108 @@ tr.space
 	{
 		margin-left: 5px;
 		margin-right: 5px;
+	}
+	.pagination
+	{
+		font-size: 20px;
+		width: 28px;
+		background-color: var(--color1);
+		border-radius: 9px;
+	}
+	.pTop
+	{ margin-bottom: 0px; }
+	.pBottom
+	{ margin-top: 0px; }
+	.post
+	{ margin: 20px 0 20px 0; }
+	h1.postLink
+	{
+		margin: 0 0 0 10px;
+		font-size: 20px;
+	}
+	.postTitle
+	{
+		height: auto;
+		width: auto;
+		min-height: 40px;
+	}
+	.homeContent
+	{ width: auto; }
+	.postFooter
+	{ width: auto; }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px)
+{
+	#content
+	{
+		margin-top: 20px;
+		margin-bottom: 25px;
+	}
+	.hideForTabletPortrait
+	{ display: none; }
+	header.permanent
+	{ height: 30px; }
+	footer.permanent
+	{ height: 30px; }
+	h2.blogTitle
+	{ font-size: 22px; }
+	.footerLinksPhone
+	{ margin-left: 10px; }
+	.marginPhone
+	{
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.pagination
+	{
+		font-size: 20px;
+		width: 28px;
+		background-color: var(--color1);
+		border-radius: 9px;
+	}
+	.pTop
+	{ margin-bottom: 0px; }
+	.pBottom
+	{ margin-top: 0px; }
+	.post
+	{ margin: 20px 0 20px 0; }
+	h1.postLink
+	{
+		margin: 0 0 0 10px;
+		font-size: 20px;
+	}
+	.postTitle
+	{
+		height: auto;
+		width: auto;
+		min-height: 40px;
+	}
+	.homeContent
+	{ width: auto; }
+	.postFooter
+	{ width: auto; }
+}
+@media screen and (min-width: 1024px) and (max-width: 1199px)
+{
+	#content
+	{
+		margin-top: 20px;
+		margin-bottom: 25px;
+	}
+	.hideForTabletPortrait
+	{ display: none; }
+	header.permanent
+	{ height: 30px; }
+	footer.permanent
+	{ height: 30px; }
+	h2.blogTitle
+	{ font-size: 22px; }
+	.footerLinksPhone
+	{ margin-left: 10px; }
+	.marginPhone
+	{
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 	.pagination
 	{
