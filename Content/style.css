@@ -315,7 +315,12 @@ div.homeContent p, article.post p
 /* CONNEXION / INSCRIPTION */
 /***************************/
 .connexion
-{ background-color: var(--color3); }
+{
+	background-color: var(--color3);
+	margin: 50px 40px 0 40px;
+}
+.loginPwdTitle
+{ margin-top: 0px; }
 
 
 
@@ -445,6 +450,8 @@ tr.space
 /*******************/
 @media screen and (max-width: 767px)
 {
+	.connexion
+	{ margin: 50px 40px 0 40px; }
 	#content
 	{
 		margin-top: 20px;
@@ -496,6 +503,8 @@ tr.space
 }
 @media screen and (min-width: 768px) and (max-width: 1023px)
 {
+	.connexion
+	{ margin: 50px 40px 0 40px; }
 	#content
 	{
 		margin-top: 20px;
@@ -547,6 +556,8 @@ tr.space
 }
 @media screen and (min-width: 1024px) and (max-width: 1199px)
 {
+	.connexion
+	{ margin: 50px 40px 0 40px; }
 	#content
 	{
 		margin-top: 20px;
