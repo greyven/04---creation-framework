@@ -441,6 +441,8 @@ tr.space
 }
 .white
 { color: #FFF; }
+.mce-tinymce
+{ box-sizing: border-box !important; }
 
 
 

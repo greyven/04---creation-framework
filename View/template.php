@@ -11,23 +11,11 @@
 
     <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript" src="tinymce/jquery.tinymce.min.js"></script>
+	
+	<!---------------------------->
+	<!-- INITIALISATION TINYMCE -->
+	<!---------------------------->
 	<script type="text/javascript">
-		/*tinyMCE.init({
-			// id ou class, des textareas
-			selector : "textarea.tiny", 
-			// en mode avancé, cela permet de choisir les plugins
-			theme : "modern", 
-			// langue
-			language : "fr_FR",
-
-			setup: function (editor)
-			{
-		        editor.on('change', function () {
-		            tinymce.triggerSave();
-		        });
-		    }
-		});*/
-
 		tinymce.init
 		({
 			selector: 'textarea.tiny',
@@ -46,31 +34,52 @@
 		});
 
 	</script>
-
-	<title><?= $title ?></title> <!-- titre spécifique -->
+	
+	<!------------------------------->
+	<!-- TITRE DE LA PAGE AFFICHÉE -->
+	<!------------------------------->
+	<title><?= $title ?></title>
 </head>
 <body class="bg<?= mt_rand(1,3) ?>">
 	
+
+	<!------------------------------------>
+	<!-- VERIFICATIONS D'ADMINISTRATION -->
+	<!------------------------------------>
 	<?php
-		// SI L'ADMIN EST CONNECTÉ
+		/////////////////////////////
+		// SI L'ADMIN EST CONNECTÉ //
+		/////////////////////////////
 		if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1) $admin = true;
 		else $admin = false;
 
-		// SI C'EST UN CONTROLLEUR D'ADMINISTRATION
+		//////////////////////////////////////////////
+		// SI C'EST UN CONTROLLEUR D'ADMINISTRATION //
+		//////////////////////////////////////////////
 		if((isset($_GET['controler']) && ($_GET['controler'] == "admin" || $_GET['controler'] == "managecomments" || $_GET['controler'] == "createpost" || $_GET['controler'] == "modifypost"))) $adminControler = true;
 		else $adminControler = false;
 
-		// SI L'ADMIN EST CO ET CONTROLLEUR D'ADMINISTRATION
+		///////////////////////////////////////////////////////
+		// SI L'ADMIN EST CO ET CONTROLLEUR D'ADMINISTRATION //
+		///////////////////////////////////////////////////////
 		if($admin && $adminControler) $adminAndControlerOk = true;
 		else $adminAndControlerOk = false;
 	?>
 
+
+	<!----------------------->
+	<!-- AFFICHAGE DU SITE -->
+	<!----------------------->
 	<div id="global" class="container">
 		
+		<!------------------->
 		<!-- FILTRE COLORÉ -->
+		<!------------------->
 		<div class="filter"></div>
 
+		<!------------>
 		<!-- HEADER -->
+		<!------------>
 		<?php
 			if($adminAndControlerOk) require_once('View/menuAdmin.php');
 			else
@@ -87,33 +96,51 @@
 			}
 		?>
 
-		<!-- CONTENT -->
+
+		<!-------------------------->
+		<!-- AFFICHAGE DU CONTENU -->
+		<!-------------------------->
 		<div <?php if($adminAndControlerOk) echo 'id="adminContent"';
 				   else echo 'id="content"'; ?> >
 			<div class="container">
 				<div class="row">
-
+					
+					<!--------------------------------------------------------->
+					<!-- INITIALISATION DES CLASSES D'AFFICHAGE DE BOOTSTRAP -->
+					<!--------------------------------------------------------->
 					<?php
 						if($adminAndControlerOk)
 						{ $class = "col-lg-12 hideForPhone hideForTabletPortrait"; }
 						else
 						{ $class = "col-lg-8 col-md-12 col-sm-12 col-xs-12"; }
 					?>
-					<section id="leftContent" class="<?= $class ?>">
+
+					<!------------------------------------------------------------------------------->
+					<!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
+					<!------------------------------------------------------------------------------->
+					<div id="leftContent" class="<?= $class ?>">
 						<div class="row">
 							<div class="col-lg-offset-1 col-lg-10 col-xs-12 marginPhone marginTablet">
-								<?= $content ?> <!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
+								<?= $content ?>
 							</div>
 						</div>
-					</section>
+					</div>
 
+					<!----------------------------------------------------------------------------------->
+					<!-- SI CE N'EST PAS UNE PAGE D'ADMINISTRATION, AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
+					<!----------------------------------------------------------------------------------->
 					<?php
-						if(!$adminAndControlerOk)
+						if(!$adminControler)
 						{
 							?>
-							<section id="rightContent" class="col-lg-4 hideForPhone hideForTabletPortrait">
-								<?php require_once('View/biography.php'); ?> <!-- AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
-							</section>
+
+							<!---------------------------------------->
+							<!-- AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
+							<!---------------------------------------->
+							<div id="rightContent" class="col-lg-4 hidden-md hidden-sm hidden-xs">
+								<?php require_once('View/biography.php'); ?>
+							</div>
+
 							<?php
 						}
 					?>
@@ -121,7 +148,10 @@
 			</div>
 		</div>
 
+
+		<!------------>
 		<!-- FOOTER -->
+		<!------------>
 		<footer class="permanent verticalAlignCenter">
 			<div class="row">
 				<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">

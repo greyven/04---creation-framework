@@ -29,7 +29,7 @@
 	foreach ($posts as $onePost)
 	{
 		?>
-		<div class="col-lg-12 col-xs-12">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<article class="post shadow">
 				<header class="postTitle verticalAlignCenter">
 					<a href="<?= "post/index/".$this->clean($onePost['post_id']) ?>">

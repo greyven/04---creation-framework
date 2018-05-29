@@ -1,3 +1,5 @@
 # Réécrit une URL de type xxx/yyy/zzz en index.php?controler=xxx&action=yyy&post_id=zzz&comm_id=aaa
+Options +FollowSymLinks
 RewriteEngine on
+# RewriteBase /
 RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controler=$1&action=$2&post_id=$3&comm_id=$4 [NC,L]
