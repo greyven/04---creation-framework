@@ -86,7 +86,7 @@
 			{
 				?>
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-xs-12">
 						<header class="permanent verticalAlignCenter textHorizontalAlignCenter">
 						    <h2 class="blogTitle"><a href="home">Billet simple pour l'Alaska</a></h2>
 						</header>
@@ -110,40 +110,21 @@
 					<!--------------------------------------------------------->
 					<?php
 						if($adminAndControlerOk)
-						{ $class = "col-lg-12 hideForPhone hideForTabletPortrait"; }
+						{ $class = "col-lg-12 hidden-md hidden-sm hidden-xs"; }
 						else
-						{ $class = "col-lg-8 col-md-12 col-sm-12 col-xs-12"; }
+						{ $class = "col-xs-12"; }
 					?>
 
-					<!------------------------------------------------------------------------------->
-					<!-- AFFICHAGE PARTIE GAUCHE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
-					<!------------------------------------------------------------------------------->
-					<div id="leftContent" class="<?= $class ?>">
+					<!----------------------------------------------------------------->
+					<!-- AFFICHAGE LISTE POSTS, OU UN POST PRECIS, OU ADMINISTRATION -->
+					<!----------------------------------------------------------------->
+					<div class="<?= $class ?>">
 						<div class="row">
-							<div class="col-lg-offset-1 col-lg-10 col-xs-12 marginPhone marginTablet">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12 marginTablet">
 								<?= $content ?>
 							</div>
 						</div>
 					</div>
-
-					<!----------------------------------------------------------------------------------->
-					<!-- SI CE N'EST PAS UNE PAGE D'ADMINISTRATION, AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
-					<!----------------------------------------------------------------------------------->
-					<?php
-						if(!$adminControler)
-						{
-							?>
-
-							<!---------------------------------------->
-							<!-- AFFICHAGE PARTIE DROITE BIOGRAPHIE -->
-							<!---------------------------------------->
-							<div id="rightContent" class="col-lg-4 hidden-md hidden-sm hidden-xs">
-								<?php require_once('View/biography.php'); ?>
-							</div>
-
-							<?php
-						}
-					?>
 				</div>
 			</div>
 		</div>
@@ -154,7 +135,7 @@
 		<!------------>
 		<footer class="permanent verticalAlignCenter">
 			<div class="row">
-				<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-lg-4 col-xs-12">
 					<div class="row">
 						<?php
 							if(isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0)
@@ -194,12 +175,12 @@
 						?>
 					</div>
 				</div>
-				<div class="col-lg-4 hideForPhone hideForTabletPortrait">
+				<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
 					<div class="textHorizontalAlignCenter">
 						Blog réalisé par Stephen Séré.
 					</div>
 				</div>
-				<div class="col-lg-4 hideForTabletPortrait hideForPhone">
+				<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
 					<?php
 						if($admin)
 						{

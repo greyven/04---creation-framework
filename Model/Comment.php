@@ -7,7 +7,7 @@ class Comment extends Model
 	// Renvoie la liste des commentaires d'un post
 	public function getComments($postId)
 	{
-		$sql = 'SELECT comm_id, comm_date, comm_author, comm_content, comm_reported
+		$sql = 'SELECT comm_id, DATE_FORMAT(comm_date, \'%d/%m/%Y à %Hh%imin\') AS comm_date, comm_author, comm_content, comm_reported
 				FROM comments
 				WHERE post_id = ?
 				ORDER BY comm_id DESC';
