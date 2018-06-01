@@ -1,7 +1,8 @@
 <?php
+namespace App\Controler;
 
-require_once('Framework/Controler.php');
-require_once('Model/Post.php');
+use App\Framework\Controler;
+use App\Model\Post;
 
 class ControlerHome extends Controler
 {

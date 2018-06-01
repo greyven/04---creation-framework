@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Framework;
 class Session
 {
 	// Démarre ou restaure la session
@@ -22,6 +23,6 @@ class Session
 	public function getAttribute($key)
 	{
 		if($this->existAttribute($key)) return $_SESSION[$key];
-		else throw new Exception("Attribut '$key' introuvable.");
+		else throw new \Exception("Attribut '$key' introuvable.");
 	}
 }

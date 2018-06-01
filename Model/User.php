@@ -1,6 +1,7 @@
 <?php
+namespace App\Model;
 
-require_once('Framework/Model.php');
+use App\Framework\Model;
 
 // Modélise un utilisateur du blog
 class User extends Model
@@ -29,7 +30,7 @@ class User extends Model
 				WHERE user_login = ? AND user_pwd = ?';
 		$user = $this->executeRequest($sql, array($login, $pwd));
 		if($user->rowCount() == 1) return $user->fetch();
-		else throw new Exception("Aucun utilisateur ne correspond aux identifiants fournis.");
+		else throw new \Exception("Aucun utilisateur ne correspond aux identifiants fournis.");
 	}
 
 	// Ajoute un nouvel utilisateur dans la bdd

@@ -1,6 +1,6 @@
 <?php
 
-require_once('Framework/Configuration.php');
+namespace App\Framework;
 
 class View
 {
@@ -47,7 +47,7 @@ class View
 				require $file;
 			return ob_get_clean();
 		}
-		else throw new Exception("Fichier '$file' introuvable.");
+		else throw new \Exception("Fichier '$file' introuvable.");
 	}
 
 	// Néttoie une valeur insérée dans une page HTML

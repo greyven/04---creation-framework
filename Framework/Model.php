@@ -1,6 +1,6 @@
 <?php
 
-require_once('Framework/Configuration.php');
+namespace App\Framework;
 
 abstract class Model
 {
@@ -32,8 +32,8 @@ abstract class Model
 			$login = Configuration::get("login");
 			$pwd = Configuration::get("pwd");
 			// Création de la connexion
-			self::$db = new PDO($dsn, $login, $pwd,
-				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+			self::$db = new \PDO($dsn, $login, $pwd,
+				array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
 		}
 		return self::$db;
 	}

@@ -1,6 +1,6 @@
 <?php
 
-require_once('Framework/Session.php');
+namespace App\Framework;
 
 class Request
 {
@@ -26,7 +26,7 @@ class Request
 	public function getParameter($key)
 	{
 		if($this->existParameter($key)) return $this->parameters[$key];
-		else throw new Exception("Parametre '$key' absent de la requete.");
+		else throw new \Exception("Parametre '$key' absent de la requete.");
 	}
 
 	/* public function addParameter($param)

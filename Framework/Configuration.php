@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Framework;
+
 class Configuration
 {
 	private static $parameters;

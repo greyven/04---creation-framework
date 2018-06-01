@@ -1,7 +1,6 @@
 <?php
 
-require_once('Framework/Request.php');
-require_once('Framework/View.php');
+namespace App\Framework;
 
 abstract class Controler
 {
@@ -26,7 +25,7 @@ abstract class Controler
 		else
 		{
 			$controlerClass = get_class($this);
-			throw new Exception("Action ".$this->action." non défini dans la classe $controlerClass");
+			throw new \Exception("Action ".$this->action." non défini dans la classe $controlerClass");
 		}
 	}
 
@@ -39,7 +38,7 @@ abstract class Controler
 	{
 		// Determiner le fichier vue à partir du nom du controler actuel
 		$controlerClass = get_class($this);
-		$controler = str_replace("Controler", "", $controlerClass);
+		$controler = str_replace("App\\Controler\\Controler", "", $controlerClass);
 		
 		
 		$action = (is_null($view)) ? $this->action : $view;

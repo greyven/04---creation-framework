@@ -1,8 +1,6 @@
 <?php
 
-require_once('Framework/Controler.php');
-require_once('Framework/Request.php');
-require_once('Framework/View.php');
+namespace App\Framework;
 
 class Router
 {
@@ -20,7 +18,7 @@ class Router
 
 			$controler->executeAction($action);
 		}
-		catch(Exception $e)
+		catch(\Exception $e)
 		{ $this->manageError($e); }
 	}
 
@@ -36,17 +34,14 @@ class Router
 		}
 
 		// Création du nom du fichier du controler
-		$controlerClass = "Controler".$controler;
-		$controlerFile = "Controler/".$controlerClass.".php";
-
-		if(file_exists($controlerFile))
-		{
-			require($controlerFile);
+		$controlerClass = "App\Controler\Controler".$controler;
+		if(class_exists($controlerClass,1)){
 			$controler = new $controlerClass();
 			$controler->setRequest($request);
 			return $controler;
+		} else{
+			throw new \Exception("Page introuvable");
 		}
-		else throw new Exception("Fichier '$controlerFile' introuvable.");
 	}
 
 	// Détermine l'action à executer en fonction de la requete reçue
@@ -58,7 +53,7 @@ class Router
 	}
 
 	// Gérer erreur d'execution
-	private function manageError(Exception $exception)
+	private function manageError(\Exception $exception)
 	{
 		$view = new View("error");
 		$view->generate(array('errorMsg' => $exception->getMessage()));

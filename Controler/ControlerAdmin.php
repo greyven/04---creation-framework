@@ -1,8 +1,10 @@
-<?php
 
-require_once('Controler/ControlerSecured.php');
-require_once('Model/Post.php');
-require_once('Model/Comment.php');
+<?php
+namespace App\Controler;
+
+use App\Framework\Controler;
+use App\Model\Post;
+use App\Model\Comment;
 
 // Controleur des actions d'administration
 class ControlerAdmin extends ControlerSecured

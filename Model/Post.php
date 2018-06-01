@@ -1,6 +1,6 @@
 <?php
-
-require_once('Framework/Model.php');
+namespace App\Model;
+use App\Framework\Model;
 
 class Post extends Model
 {

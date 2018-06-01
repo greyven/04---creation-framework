@@ -1,9 +1,10 @@
 <?php
+namespace App\Controler;
 
-require_once('Framework/Controler.php');
-require_once('Model/Post.php');
-require_once('Model/Comment.php');
-require_once('Model/User.php');
+use App\Framework\Controler;
+use App\Model\User;
+use App\Model\Post;
+use App\Model\Comment;
 
 class ControlerPost extends Controler
 {

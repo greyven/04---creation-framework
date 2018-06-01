@@ -1,7 +1,7 @@
 <?php
-
-require_once('Framework/Controler.php');
-require_once('Model/User.php');
+namespace App\Controler;
+use App\Framework\Controler;
+use App\Model\User;
 
 class ControlerRegister extends Controler
 {
@@ -34,12 +34,12 @@ class ControlerRegister extends Controler
 						$this->redirect("connexion/connect"); */
 						$this->redirect("home");
 					}
-					else throw new Exception("Erreur, impossible d'ajouter l'utilisateur à la base de données.");
+					else throw new \Exception("Erreur, impossible d'ajouter l'utilisateur à la base de données.");
 				}
 				else $this->generateView(array('errorMsg' => 'Pseudo déjà existant.'), "index");
 			}
 			else $this->generateView(array('errorMsg' => 'Vous devez remplir les champs.'), "index");
 		}
-		else throw new Exception("Action REGISTER impossible: login ou mot de passe non défini.");
+		else throw new \Exception("Action REGISTER impossible: login ou mot de passe non défini.");
 	}
 }

@@ -1,6 +1,6 @@
 <?php
-
-require_once('Framework/Controler.php');
+namespace App\Controler;
+use App\Framework\Controler;
 
 // Classe parente des controleurs soumis à authentification
 abstract class ControlerSecured extends Controler

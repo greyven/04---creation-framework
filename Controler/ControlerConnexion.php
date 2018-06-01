@@ -1,7 +1,9 @@
-<?php
 
-require_once('Framework/Controler.php');
-require_once('Model/User.php');
+<?php
+namespace App\Controler;
+
+use App\Framework\Controler;
+use App\Model\User;
 
 class ControlerConnexion extends Controler
 {
@@ -39,7 +41,7 @@ class ControlerConnexion extends Controler
 			}
 			else $this->generateView(array('errorMsg' => 'Login ou mot de passe incorrects'), "index");
 		}
-		else throw new Exception("Action CONNEXION impossible: login ou mot de passe non défini.");
+		else throw new \Exception("Action CONNEXION impossible: login ou mot de passe non défini.");
 	}
 
 	public function deconnect()
