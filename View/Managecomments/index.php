@@ -59,11 +59,11 @@
 											<div class="floatRight">
 												<div class="commands">
 													[
-													<a href="post/deleteCommentFromAdmin/<?= $onePost['post_id'] ?>/<?= $onePost['comm_id'] ?>">
+													<a href="post/deleteCommentFromAdmin/<?= $onePost['comm_id'] ?>">
 														Supprimer
 													</a>
 													] [
-													<a href="managecomments/unreport/<?= $onePost['post_id'] ?>/<?= $onePost['comm_id'] ?>">
+													<a href="managecomments/unreport/<?= $onePost['comm_id'] ?>">
 														Faux-signalement
 													</a>
 													]

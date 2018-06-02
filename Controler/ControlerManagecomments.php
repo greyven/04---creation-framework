@@ -29,7 +29,7 @@ class ControlerManagecomments extends ControlerSecured
 	// Désignaler un commentaire jugé déplacé
 	public function unreport()
 	{
-		$commId = $this->request->getParameter("comm_id");
+		$commId = $this->request->getParameter("id");
 
 		// Mise à jour du commentaire $commId
 		$this->comment->unreportComment($commId);

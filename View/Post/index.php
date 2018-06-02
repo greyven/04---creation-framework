@@ -60,7 +60,7 @@
 														{
 															?>
 															<div class="floatRight inline">
-																<a href="post/report/<?= $post['post_id'] ?>/<?= $oneComment['comm_id'] ?>">
+																<a href="post/report/<?= $oneComment['comm_id'] ?>">
 																	<span class="notReported">Signaler</span>
 																</a>
 															</div>
@@ -72,7 +72,7 @@
 															?>
 															<div class="floatRight"> - </div>
 															<div class="floatRight inline">
-																<a href="post/deleteComment/<?= $post['post_id'] ?>/<?= $oneComment['comm_id'] ?>">
+																<a href="post/deleteComment/<?= $oneComment['comm_id'] ?>">
 																	<span class="deleteComment">Supprimer</span>
 																</a>
 															</div>
@@ -108,7 +108,7 @@
 						<br/>
 						<textarea id="txtComment" name="comm_content" rows="6" placeholder="Votre commentaire" minlength="5" maxlength="200" required></textarea>
 						<br/>
-						<input type="hidden" name="post_id" value="<?= $post['post_id'] ?>"/>
+						<input type="hidden" name="id" value="<?= $post['post_id'] ?>"/>
 						<input type="submit" value="Valider"/>
 					</form>
 					<?php

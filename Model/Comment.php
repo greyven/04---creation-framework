@@ -16,6 +16,16 @@ class Comment extends Model
 		return $comments;
 	}
 
+	// Renvoie un commentaire d'un post
+	public function getComment($commId)
+	{
+		$sql = 'SELECT comm_id, DATE_FORMAT(comm_date, \'%d/%m/%Y à %Hh%imin\') AS comm_date, comm_author, comm_content, comm_reported, post_id
+				FROM comments
+				WHERE comm_id = ?
+				LIMIT 1';
+		$comment = $this->executeRequest($sql, array($commId))->fetch();
+		return $comment;
+	}
 
 	// Ajoute un commentaire dans la bdd
 	public function addComment($author, $content, $postId)

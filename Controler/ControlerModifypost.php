@@ -19,7 +19,7 @@ class ControlerModifypost extends ControlerSecured
 
 	public function index()
 	{
-		$postId = $this->request->getParameter("post_id");
+		$postId = $this->request->getParameter("id");
 		$post = $this->post->getPost($postId);
 
 		$this->generateView(array('post' => $post));
@@ -28,7 +28,7 @@ class ControlerModifypost extends ControlerSecured
 	// Modifie un post
 	public function updatePost()
 	{
-		$postId = $this->request->getParameter("post_id");
+		$postId = $this->request->getParameter("id");
 		$title = $this->request->getParameter("modifyPostTitle");
 		$content = $this->request->getParameter("modifyPostContent");
 

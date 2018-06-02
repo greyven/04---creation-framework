@@ -1,4 +1,3 @@
-
 <?php
 namespace App\Controler;
 
@@ -30,7 +29,7 @@ class ControlerAdmin extends ControlerSecured
 	// Supprimer un post
 	public function deletePost()
 	{
-		$postId = $this->request->getParameter("post_id");
+		$postId = $this->request->getParameter("id");
 
 		// Suppression du post
 		$this->post->destroyPost($postId);
