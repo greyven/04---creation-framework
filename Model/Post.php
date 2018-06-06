@@ -41,7 +41,7 @@ class Post extends Model
 		$sql = 'SELECT * FROM `posts`
 				INNER JOIN comments ON comments.post_id = posts.post_id
 				WHERE comments.comm_reported = 1
-				ORDER BY posts.post_id';
+				ORDER BY posts.post_id DESC, comm_id DESC';
 		return $this->executeRequest($sql);
 	}
 
