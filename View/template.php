@@ -20,7 +20,7 @@
 		({
 			selector: 'textarea.tiny',
 			theme: 'modern',
-			plugins: 'print preview searchreplace autolink directionality visualblocks image link media table charmap hr insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+			plugins: 'print preview searchreplace autolink directionality visualblocks charmap hr insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
 			toolbar1: 'sizeselect fontselect fontsizeselect bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
 			fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
 			branding: false,

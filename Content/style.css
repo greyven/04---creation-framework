@@ -226,9 +226,11 @@ footer.permanent
 	color: black;
 	margin: 10px;
 }
-div.homeContent p, article.post p
+div.homeContent p, article.post p, article.post h1, article.post h2,
+article.post h3, article.post h4, article.post h5, article.post h6
 {
 	margin-left: 10px;
+	margin-right: 10px;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
 	-ms-hyphens: auto;
