@@ -2,5 +2,5 @@
 
 - Transformation d'un modèle MVC vers un framework.
 
-Lien du blog ainsi créé:
+Lien de l'application:
 http://jeanforteroche.seyssinet-pariset.com/
