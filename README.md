@@ -1,3 +1,6 @@
-# 04---recreation-framework
+# 04---creation-framework
 
-- Transformation du modèle MVC vers un framework.
+- Transformation d'un modèle MVC vers un framework.
+
+Lien du blog ainsi créé:
+http://jeanforteroche.seyssinet-pariset.com/
